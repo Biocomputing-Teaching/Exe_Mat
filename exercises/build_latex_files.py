@@ -21,11 +21,24 @@ def read_themes(csv_file):
         reader = csv.reader(f)
         next(reader)  # Skip header if there is one
         for row in reader:
+            # Skip empty lines or rows with insufficient columns
+            if not row or len(row) < 3:
+                print(f"Warning: Skipping invalid or empty row: {row}")
+                continue
+
             theme_name = row[0].strip()
             parent_theme = row[1].strip() if row[1].strip() != '' else None  # Allow for top-level themes
-            hierarchy = int(row[2].strip())  # Hierarchy is assumed to be an integer
+            hierarchy = row[2].strip()
+
+            if hierarchy == '':
+                print(f"Warning: Missing hierarchy for theme '{theme_name}', setting it to 1.")
+                hierarchy = 1  # Default hierarchy if missing
+            else:
+                hierarchy = int(hierarchy)  # Convert to integer
+
             themes.append({'theme_name': theme_name, 'parent_theme': parent_theme, 'hierarchy': hierarchy})
     return themes
+
 
 def build_theme_hierarchy(themes):
     """Build a nested structure of themes using the parent-child relationship."""
@@ -36,13 +49,21 @@ def build_theme_hierarchy(themes):
     for theme in themes:
         if theme['parent_theme']:
             parent = theme_dict.get(theme['parent_theme'])
+            
+            # Handle cases where the parent doesn't exist
+            if parent is None:
+                print(f"Warning: Parent theme '{theme['parent_theme']}' not found for theme '{theme['theme_name']}'. Skipping this theme.")
+                continue
+            
             if 'children' not in parent:
                 parent['children'] = []
             parent['children'].append(theme)
         else:
+            # If no parent, it's a top-level theme
             hierarchy_tree.append(theme)
 
     return hierarchy_tree
+
 
 def generate_latex_for_themes(theme, files_labels, label_to_include, hierarchy_level=1):
     """Recursively generate LaTeX content for the themes and their hierarchy."""
@@ -55,7 +76,9 @@ def generate_latex_for_themes(theme, files_labels, label_to_include, hierarchy_l
 
     # Add exercises related to the label for this theme
     for filename, labels in files_labels:
-        if label_to_include in labels:
+        # Normalize the labels for comparison (remove spaces, case-insensitive)
+        normalized_labels = [label.strip().lower() for label in labels]
+        if label_to_include.strip().lower() in normalized_labels:
             latex_content.append(f"\\input{{{filename}}}")
 
     # Recurse for children themes (if any)
@@ -64,6 +87,7 @@ def generate_latex_for_themes(theme, files_labels, label_to_include, hierarchy_l
             latex_content.extend(generate_latex_for_themes(child_theme, files_labels, label_to_include, hierarchy_level + 1))
 
     return latex_content
+
 
 def save_latex_file(latex_content, output_file):
     """Save the LaTeX content to a file."""
