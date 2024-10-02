@@ -1,5 +1,5 @@
 \Exercise  
-Considerem una població de ratolins que es troba en una illa deserta. La població inicial de ratolins és de 100 individus. La taxa de creixement natural anual és del 30\% (\( r = 0.30 \)). 
+Considerem una població de ratolins que es troba en una illa deserta. La població inicial de ratolins és de 100 individus. La taxa de creixement natural anual és del 30\% ($r = 0.30$). 
 
 Es vol determinar el temps necessari perquè la població arribi a 1 milió de ratolins en dos casos:
 
@@ -14,7 +14,7 @@ Es vol determinar el temps necessari perquè la població arribi a 1 milió de r
 
 \textbf{Sense Aportacions Externes}
 
-La població en temps \( t \) es modela amb l'equació de creixement exponencial:
+La població en temps $t$ es modela amb l'equació de creixement exponencial:
 \[
 P(t) = P_0 \cdot (1 + r)^t
 \]
@@ -24,12 +24,12 @@ P(t+1) = P(t) \cdot (1 + r)
 \]
 On:
 \begin{itemize}
-    \item \( P_0 = 100 \) (població inicial)
-    \item \( r = 0.30 \) (taxa de creixement)
-    \item \( P(t) = 1{,}000{,}000 \) (població objectiu)
+    \item $P_0 = 100$ (població inicial)
+    \item $r = 0.30$ (taxa de creixement)
+    \item $P(t) = 1{,}000{,}000$ (població objectiu)
 \end{itemize}
 
-Per trobar el temps \( t \) necessari per arribar a 1 milió de ratolins, resolem:
+Per trobar el temps $t$ necessari per arribar a 1 milió de ratolins, resolem:
 \[
 1{,}000{,}000 = 100 \cdot (1.30)^t
 \]
@@ -57,13 +57,13 @@ P(t) = P_0 \cdot (1 + r)^t + A \cdot \frac{(1 + r)^t - 1}{r}
 \]
 On:
 \begin{itemize}
-    \item \( P_0 = 100 \) (població inicial)
-    \item \( r = 0.30 \) (taxa de creixement)
-    \item \( A = 20 \) (aportacions externes)
-    \item \( P(t) = 1{,}000{,}000 \) (població objectiu)
+    \item $P_0 = 100$ (població inicial)
+    \item $r = 0.30$ (taxa de creixement)
+    \item $A = 20$ (aportacions externes)
+    \item $P(t) = 1{,}000{,}000$ (població objectiu)
 \end{itemize}
 
-Utilitzant un enfocament iteratiu, s'ha de trobar el temps \( t \) per al qual la població supera 1 milió de ratolins. En aquest cas, el càlcul és:
+Utilitzant un enfocament iteratiu, s'ha de trobar el temps $t$ per al qual la població supera 1 milió de ratolins. En aquest cas, el càlcul és:
 \[
 P(t) = 100 \cdot (1.30)^t + 20 \cdot \frac{(1.30)^t - 1}{0.30}
 \]

@@ -1,8 +1,8 @@
 # Variables
 LATEXMK=latexmk
-LATEXMK_FLAGS=-pdf -interaction=nonstopmode -halt-on-error
-SRC_DIR=exercises
-BUILD_DIR=build
+#LATEXMK_FLAGS=-pdf -interaction=nonstopmode -halt-on-error
+SRC_DIR=./
+BUILD_DIR=../build
 
 # LaTeX document names (without the .tex extension)
 DOC_CAT=ExercicisResolts
