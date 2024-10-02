@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{gensymb}
+
+%\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+
+
+\begin{document}
+
+\begin{tikzpicture}[]
+\draw [step=0.1,lightgray,thin] (0,0) grid (1,1);
+\draw [->](-0.2,0) -- (1.2,0); %x-axis
+\draw [->](0,-0.2) -- (0,1.2); %y-axis
+\draw[red] (0,0) -- (1,0) -- (0,1) -- (0,0) ;
+\draw[blue](0,0) -- (1,0) -- (0.5,1) -- (0,0);
+\end{tikzpicture}
+
+\end{document}

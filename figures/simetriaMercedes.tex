@@ -1,0 +1,53 @@
+\documentclass[]{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  ticks=none,
+	xmin=-5,   xmax=5,
+	ymin=-5,   ymax=5,
+  axis lines=none
+	% extra x ticks={-1,1},
+	% extra y ticks={-2,2},
+	% extra tick style={grid=major},
+]
+\node [above right] at (rel axis cs:0.26,0.21) {\includegraphics[width=3cm]{logoMercedes}};
+\addplot [
+    domain=-2.5:2.5,
+    samples=20,
+    color=blue,
+    dashed
+    ]
+    {tan(34)*x} node [above] {$\sigma_s$};
+
+    \addplot [
+        domain=-2.5:2.5,
+        samples=20,
+        color=red,
+        dashed
+        ]
+        {-tan(34)*x} node [above] {$\sigma_t$};
+
+    \addplot +[
+        color=green,
+        mark=none,
+        dashed
+        ]
+        coordinates {(0, -3) (0, 3)} node [left] {$\sigma_r$};
+
+    \addplot [
+        domain=-2.5:2.5,
+        samples=20,
+        color=red,
+        dashed
+        ]
+        {-tan(34)*x} node [above] {$\sigma_t$};
+
+
+\end{axis}
+
+\end{tikzpicture}
+
+
+\end{document}

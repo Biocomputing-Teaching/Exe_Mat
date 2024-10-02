@@ -1,0 +1,103 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\usepackage{mathtools}
+\pgfplotsset{compat=1.8}
+
+\begin{document}
+
+\begin{tikzpicture}
+\pgfplotsset{
+  scale only axis,
+  xmin=0,xmax=5,
+  ymin=0,ymax=8,
+  xlabel=$x$,
+  ylabel=$y$,
+  samples=100,
+  xtick={0,1,2,3,4}
+%  yticklabel style={text width=3em,align=right}% important per mantenir una mida correcta dels ticks en qualsevol situació quan hi ha multiple plots
+}
+
+\matrix{
+
+\begin{axis}[
+  title={Interpolació $P_0$ i $P_1$: $y=\frac{3}{1}(x-1)+2$},
+  name=plot1,
+  ]
+  \addplot [only marks,
+            mark=*,
+            nodes near coords={$(\pgfmathprintnumber{\pgfkeysvalueof{/data point/x}},
+   \pgfmathprintnumber{\pgfkeysvalueof{/data point/y}})$}]
+   table {
+    1 2
+    2 5
+    3 7
+    4 3
+    };
+  \addplot[color=lightgray][]{3*(x-1)+2};
+  \addplot[color=blue,ultra thick][domain=1:2]{3*(x-1)+2};
+\end{axis}
+
+&\begin{axis}[
+  title={Interpolació $P_1$ i $P_2$: $y=\frac{2}{1}(x-2)+5$},
+  name=plot2,
+  %at=(plot1.right of south east), anchor=left of south west,
+  ]\addplot [only marks,
+            mark=*,
+            nodes near coords={$(\pgfmathprintnumber{\pgfkeysvalueof{/data point/x}},
+   \pgfmathprintnumber{\pgfkeysvalueof{/data point/y}})$}] table {
+    1 2
+    2 5
+    3 7
+    4 3
+    };
+  \addplot[color=lightgray][]{2*x+1};
+  \addplot[color=blue,ultra thick][domain=2:3]{2*x+1};
+\end{axis}
+
+\\
+\begin{axis}[%
+  title={Interpolació $P_2$ i $P_3$: $y=\frac{-4}{1}(x-3)+7$},
+  name=plot4,
+  %at=(plot1.below south west), anchor=above north west,
+  ]\addplot [only marks,
+            mark=*,
+            nodes near coords={$(\pgfmathprintnumber{\pgfkeysvalueof{/data point/x}},
+   \pgfmathprintnumber{\pgfkeysvalueof{/data point/y}})$}] table {
+    1 2
+    2 5
+    3 7
+    4 3
+    };
+  \addplot[color=lightgray][]{-4*(x-3)+7};
+  \addplot[color=blue,ultra thick][domain=3:4]{-4*(x-3)+7};
+\end{axis}
+
+&\begin{axis}[%
+  title={Interpolació a trossos, $P_0$, $P_1$ i $P_2$:
+   $y= \begin{cases}
+          \frac{3}{1}(x-1)+2 , x \in [1,2]\\
+          \frac{2}{1}(x-2)+5 , x \in (2,3]
+         \end{cases}$
+  },
+  name=plot3,
+  %at=(plot2.below south west), anchor=above north west,
+  ]\addplot [only marks,
+            mark=*,
+            nodes near coords={$(\pgfmathprintnumber{\pgfkeysvalueof{/data point/x}},
+   \pgfmathprintnumber{\pgfkeysvalueof{/data point/y}})$}] table {
+    1 2
+    2 5
+    3 7
+    4 3
+    };
+    \addplot[color=lightgray][]{3*(x-1)+2};
+    \addplot[color=blue,ultra thick][domain=1:2]{3*(x-1)+2};
+    \addplot[color=lightgray][]{2*x+1};
+    \addplot[color=blue,ultra thick][domain=2:3]{2*x+1};
+
+\end{axis}\\
+};
+
+\end{tikzpicture}
+
+\end{document}

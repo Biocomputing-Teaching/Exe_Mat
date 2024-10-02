@@ -1,110 +1,110 @@
 \documentclass[12pt]{article}
-\input{common.tex}
-\usepackage{natbib} 
-\bibliographystyle{plain}
-\usepackage{amsmath, amssymb, amsthm, commath, mathtools,gensymb}
-\usepackage{siunitx}
-\usepackage{array}
-\usepackage{tabularx,makecell}
-\usepackage{tikz}
-\usepackage{tkz-graph}
-\usepackage{pgfplots}
-\usepackage{hyperref}
+\input{../common/common.tex}
+% \usepackage{natbib} 
+% \bibliographystyle{plain}
+% \usepackage{amsmath, amssymb, amsthm, commath, mathtools,gensymb}
+% \usepackage{siunitx}
+% \usepackage{array}
+% \usepackage{tabularx,makecell}
+% \usepackage{tikz}
+% \usepackage{tkz-graph}
+% \usepackage{pgfplots}
+% \usepackage{hyperref}
 
-\pgfplotsset{compat=1.12}
-\usetikzlibrary{patterns}
-\usetikzlibrary{arrows}
-\usetikzlibrary{positioning,
-                quotes}
-\usepackage{caption}
-\usepackage{listings}
-\usepackage{graphicx}
-\graphicspath{{../figures/}}
+% \pgfplotsset{compat=1.12}
+% \usetikzlibrary{patterns}
+% \usetikzlibrary{arrows}
+% \usetikzlibrary{positioning,
+%                 quotes}
+% \usepackage{caption}
+% \usepackage{listings}
+% \usepackage{graphicx}
+% \graphicspath{{../figures/}}
 
-%numeracions dels llistats
-\usepackage{enumitem}
-\newlist{llista}{enumerate}{3}
-\setlist[llista,1]{label=(\arabic*)}
-\setlist[llista,2]{label=(\arabic{llistai}.\arabic*)}
-\setlist[llista,3]{label=(\arabic{llistai}.\arabic{llistaii}.\arabic*)}
+% %numeracions dels llistats
+% \usepackage{enumitem}
+% \newlist{llista}{enumerate}{3}
+% \setlist[llista,1]{label=(\arabic*)}
+% \setlist[llista,2]{label=(\arabic{llistai}.\arabic*)}
+% \setlist[llista,3]{label=(\arabic{llistai}.\arabic{llistaii}.\arabic*)}
 
 
-\usepackage{color,colortbl} %red, green, blue, yellow, cyan, magenta, black, white
-\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
-\definecolor{mylilas}{RGB}{170,55,241}
-\definecolor{UVICRED}{RGB}{255,0,0}
+% \usepackage{color,colortbl} %red, green, blue, yellow, cyan, magenta, black, white
+% \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+% \definecolor{mylilas}{RGB}{170,55,241}
+% \definecolor{UVICRED}{RGB}{255,0,0}
 
-\setenumerate[0]{label=(\Alph*)}
+% \setenumerate[0]{label=(\Alph*)}
 
-% % Definition of \maketitle
+% % % Definition of \maketitle
+% % \makeatletter
+% % \def\@maketitle{
+% % \raggedright
+% % \includegraphics[width = 40mm]{figures/FCTE.png}\\[8ex]
+% % \begin{center}
+% % {\Huge \bfseries \sffamily \@title }\\[4ex]
+% % {\Large  \@author}\\[4ex]
+% % \@date\\[8ex]
+% % \includegraphics[width = 40mm]{image.png}
+% % \end{center}}
+% % \makeatother
+
+% \newenvironment{exercici}[1]{%
+% \refstepcounter{excounter}%
+% \label{#1}%
+% \noindent\textbf{Exercixi~\theexcounter}%
+% }%
+
+% \newcommand{\veci}{\ensuremath{\mathbf i}}
+% \newcommand{\vecj}{\ensuremath{\mathbf j}}
+% \newcommand{\veck}{\ensuremath{\mathbf k}}
+
+% % comanda per definir Gauss-Jordan Elimination
+% \allowdisplaybreaks
 % \makeatletter
-% \def\@maketitle{
-% \raggedright
-% \includegraphics[width = 40mm]{figures/FCTE.png}\\[8ex]
-% \begin{center}
-% {\Huge \bfseries \sffamily \@title }\\[4ex]
-% {\Large  \@author}\\[4ex]
-% \@date\\[8ex]
-% \includegraphics[width = 40mm]{image.png}
-% \end{center}}
+% \newcounter{elimination@steps}
+% \newcolumntype{R}[1]{>{\raggedleft\arraybackslash$}p{#1}<{$}}
+% \def\elimination@num@rights{}
+% \def\elimination@num@variables{}
+% \def\elimination@col@width{}
+% \newenvironment{elimination}[4][0]
+% {
+%     \setcounter{elimination@steps}{0}
+%     \def\elimination@num@rights{#1}
+%     \def\elimination@num@variables{#2}
+%     \def\elimination@col@width{#3}
+%     \renewcommand{\arraystretch}{#4}
+%     \start@align\@ne\st@rredtrue\m@ne
+% }
+% {
+%     \endalign
+%     \ignorespacesafterend
+% }
+% \newcommand{\eliminationstep}[2]
+% {
+%     \ifnum\value{elimination@steps}>0\sim\quad\fi
+%     \left[
+%         \ifnum\elimination@num@rights>0
+%             \begin{array}
+%             {@{}*{\elimination@num@variables}{R{\elimination@col@width}}
+%             |@{}*{\elimination@num@rights}{R{\elimination@col@width}}}
+%         \else
+%             \begin{array}
+%             {@{}*{\elimination@num@variables}{R{\elimination@col@width}}}
+%         \fi
+%             #1
+%         \end{array}
+%     \right]
+%     &
+%     \begin{array}{l}
+%         #2
+%     \end{array}
+%     &%                                    moved second & here
+%     \addtocounter{elimination@steps}{1}
+% }
 % \makeatother
 
-\newenvironment{exercici}[1]{%
-\refstepcounter{excounter}%
-\label{#1}%
-\noindent\textbf{Exercixi~\theexcounter}%
-}%
-
-\newcommand{\veci}{\ensuremath{\mathbf i}}
-\newcommand{\vecj}{\ensuremath{\mathbf j}}
-\newcommand{\veck}{\ensuremath{\mathbf k}}
-
-% comanda per definir Gauss-Jordan Elimination
-\allowdisplaybreaks
-\makeatletter
-\newcounter{elimination@steps}
-\newcolumntype{R}[1]{>{\raggedleft\arraybackslash$}p{#1}<{$}}
-\def\elimination@num@rights{}
-\def\elimination@num@variables{}
-\def\elimination@col@width{}
-\newenvironment{elimination}[4][0]
-{
-    \setcounter{elimination@steps}{0}
-    \def\elimination@num@rights{#1}
-    \def\elimination@num@variables{#2}
-    \def\elimination@col@width{#3}
-    \renewcommand{\arraystretch}{#4}
-    \start@align\@ne\st@rredtrue\m@ne
-}
-{
-    \endalign
-    \ignorespacesafterend
-}
-\newcommand{\eliminationstep}[2]
-{
-    \ifnum\value{elimination@steps}>0\sim\quad\fi
-    \left[
-        \ifnum\elimination@num@rights>0
-            \begin{array}
-            {@{}*{\elimination@num@variables}{R{\elimination@col@width}}
-            |@{}*{\elimination@num@rights}{R{\elimination@col@width}}}
-        \else
-            \begin{array}
-            {@{}*{\elimination@num@variables}{R{\elimination@col@width}}}
-        \fi
-            #1
-        \end{array}
-    \right]
-    &
-    \begin{array}{l}
-        #2
-    \end{array}
-    &%                                    moved second & here
-    \addtocounter{elimination@steps}{1}
-}
-\makeatother
-
-\usepackage{tkz-euclide}
+% \usepackage{tkz-euclide}
 
 
 \begin{document}
