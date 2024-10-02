@@ -1,0 +1,54 @@
+\Exercise Determineu la imatge del punt $(0,-2,0)$ quan el rotem un angle de 90 graus al voltant d'un eix que està sobre el pla $YZ$ i que forma un angle de 60 graus amb l'eix $OY$.
+
+\Answer 
+
+Per trobar la imatge haurem d'aplicar l'expressió 
+\begin{equation}
+  q_B= qq_Aq^*  
+\label{Eq:rotquaternio}
+\end{equation}
+on $q_A$ és el quaternió que correspjn al punt que volem rotar i $q_B$ és la seva imatge després de la rotació, mentre que $q_R$ és el quaternió de rotació unitari $\hat{q}=q_0+q_1i+q_2j+q_3k$.
+Recordem que, donat un quaternió unitari de rotació, l'angle de rotació i l'eix associats venen donats per:
+\begin{eqnarray*}
+  \theta &=& 2 \arccos{q_0}\\
+  \hat{r}&=& \frac{(q_1,q_2,q_3)}{\sqrt{(1-q_0^2)}} = \left(
+  \frac{q_1}{\sin{\frac{\theta}{2}}},
+  \frac{q_2}{\sin{\frac{\theta}{2}}},
+  \frac{q_3}{\sin{\frac{\theta}{2}}}
+  \right)
+\end{eqnarray*}
+L'operació inversa seria trobar un quaternió a partir de l'eix de rotació $\hat{r}$ i l'angle de rotació $\theta$:
+\begin{equation}
+  q=\cos{\frac{\theta}{2}}+i\sin{\frac{\theta}{2}}\hat{r}_x+j\sin{\frac{\theta}{2}}\hat{r}_y+k\sin{\frac{\theta}{2}}\hat{r}_z
+  \label{Eq:quaternio}
+\end{equation}
+
+Per tant, primer ens cal determinar el vector unitat al voltant del qual farem la rotació. En aquest exercici es tracta d'un vector que formarà un angle de 60 graus (o $\pi/3$ rad) respecte l'eix $OY$ i que es troba en el pla $YZ$. Per tant, les seves coordenades seran: 
+\[
+  \hat{r}=\cos{\frac{\pi}{3}} \uvec{j} + \sin{\frac{\pi}{3}}\uvec{k} = \frac{1}{2}  \uvec{j} + \frac{\sqrt{3}}{2} \uvec{k}
+\]
+Sabent l'angle de rotació $\theta=\pi/2$, podem construir el quaternió de rotació usant l'Equació \ref{Eq:quaternio}:
+\begin{eqnarray*}
+  q=&=&
+  \cos{\frac{\pi}{4}}+j\sin{\frac{\pi}{4}}\frac{1}{2}+k\sin{\frac{\pi}{4}}\frac{\sqrt{3}}{2}\\
+  &=& \frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}\frac{1}{2}j+\frac{\sqrt{2}}{2}\frac{\sqrt{3}}{2}k=
+  \frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{4}j+\frac{\sqrt{6}}{4}k
+\end{eqnarray*}
+que, com es pot comprovar fàcilment,  és unitari i  té com a quaternió conjugat
+\[
+  q^* =\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{4}j-\frac{\sqrt{6}}{4}k
+\]
+
+D'altra banda, el quaternió $q_A$ corresponent al punt que hem de rotar es calcula usant directament les seves coordenades per a les parts imaginàries del quaternió i deixant zero la part real:
+\[
+  q_A=  -2j 
+\]
+
+Amb tot això, ja podem trobar el quaternió imatge amb l'equació \ref{Eq:rotquaternio}
+
+\[
+  q_B= qq_Aq^*  =  \left(\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{4}j+\frac{\sqrt{6}}{4}k\right) \cdot 
+  ( -2j) \cdot \left(\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{4}j-\frac{\sqrt{6}}{4}k\right)=\sqrt{3}i-\frac{1}{2}j-\frac{\sqrt{3}}{2}k
+\]
+Per tant, la imatge del punt donat $(0,-2,0)$ és $\left(\sqrt{3},\frac{1}{2},\frac{\sqrt{3}}{2}\right)$
+\blacksquare

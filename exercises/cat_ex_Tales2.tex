@@ -1,0 +1,33 @@
+\Exercise
+
+La projecció d'un catet sobre la hipotenusa d'un triangle rectangle medeix 4cm, i la hipotenusa 9c. Quant medeix el catet?
+
+\Answer
+
+Els triangles $AXC$ i $CXB$ de la figura són semblants:
+\begin{center}
+\begin{tikzpicture}
+    \coordinate [label={180:$A$}] (a) at (0,0);
+    \coordinate [label={0:$B$}] (b) at (9,0);
+    \coordinate [label={-90:$X$}] (x) at (4,0);
+
+    \draw [dashed] let \p1 = ($(b)-(a)$) in [name path=pa] (a) arc (180:0:\x1/2);
+    \draw [dashed] let \p1 = ($(b)-(a)$) in [name path=px] (x) |- ($(x)+(90:\x1/2)$);
+    \draw [name intersections={of=pa and px}] (a) -- (intersection-1) node [label={90:$C$}] {} -- (b) -- cycle;
+    \path [|-|] ($(a)+(0,-1)$) edge node[below] {$4cm$}  ($(x)+(0,-1)$);
+    \path [|-|] ($(a)+(0,-2)$) edge node[below] {$9cm$}  ($(b)+(0,-2)$);
+  \end{tikzpicture}
+\end{center}
+
+  Per tant, es compleix que:
+  \begin{eqnarray*}
+    \frac{AX}{CX}&=&\frac{CX}{XB}\\
+    \frac{4cm}{CX}&=&\frac{CX}{5cm}
+  \end{eqnarray*}
+  Amb la qual cosa, l'alçada del triangle és $CX=\sqrt{20}=2\sqrt{5}cm$. D'aquí, usant el teorema de Pitàgoras: $AC=\sqrt{4^2+(2\sqrt{5})^2}=\sqrt{16+20}=6cm$.
+
+  També podem notar que, de fet, els tres triangles $AXC$, $CXB$ i $ACB$ de la figura són semblants (només cal observar els seus angles). Per tant:
+  \[
+    \frac{AC}{AB}=\frac{AX}{AC}  
+  \]
+  És a dir que: $AC=\sqrt{AB\cdot AX}=6cm$.

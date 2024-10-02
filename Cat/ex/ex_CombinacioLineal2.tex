@@ -1,0 +1,41 @@
+\Exercise Si $\{\overrightarrow{v_1},\overrightarrow{v_2}\} = \{ (2,1),(-2,1) \}$ i $\{\overrightarrow{e_1},\overrightarrow{e_2}\} = \{ (1,0),(0,1) \}$
+\begin{enumerate}
+  \item Pots escriure $\overrightarrow{e_2}$ en funció de $\{\overrightarrow{v_1},\overrightarrow{v_2}\}$?
+  \item Pots escriure $\overrightarrow{e_1}$ en funció de $\{\overrightarrow{v_1},\overrightarrow{v_2}\}$?
+  \item Pots escriure $\overrightarrow{v_2}$ en funció de $\{\overrightarrow{e_1}\}$?
+  \item Com són els vectors que es poden escriure com a combinació lineal de $\overrightarrow{e_1}$?
+\end{enumerate}
+
+\Answer Recordem que un vector $\vec{u}$ és una {\bf combinació lineal} dels vectors $\overrightarrow{v_1},\overrightarrow{v_2}, \ldots , \overrightarrow{v_n}$ si existeixen nombres reals $\lambda_1, \lambda_2, \ldots, \lambda_n$ que satisfan:
+\[\vec{u} = \lambda_1 \overrightarrow{v_1} + \lambda_2 \overrightarrow{v_2} + \cdots \lambda_n \overrightarrow{v_n}\]
+
+\begin{enumerate}
+  \item Hem de trobar els coeficients que satisfan 
+  \[\vec{e_2} = \alpha \overrightarrow{v_1} + \beta \overrightarrow{v_2} \]
+  Substituint:
+  \[(0,1)=\alpha (2,1) + \beta (-2,1)\]
+  d'on obtenim 
+  \[
+    \systeme*{0=2\alpha-2\beta, 1=\alpha+\beta}
+  \]
+  multiplicant la segona equació per 2 i sumant-la a la primera obtenim que $2=4\alpha$, d'on $\alpha=\beta=1/2$. Per tant:
+  \[\vec{e_2} = \frac{1}{2} \overrightarrow{v_1} +\frac{1}{2} \overrightarrow{v_2} \]
+  \item Hem de trobar els coeficients que satisfan 
+  \[\vec{e_1} = \alpha \overrightarrow{v_1} + \beta \overrightarrow{v_2} \]
+  Anàlogament al que hem fet abans:
+  \[(1,0)=\alpha (2,1) + \beta (-2,1)\]
+  d'on obtenim 
+  \[
+    \systeme*{1=2\alpha-2\beta, 0=\alpha+\beta}
+  \]
+  multiplicant la segona equació per 2 i sumant-la a la primera obtenim que $1=4\alpha$, d'on $\alpha=1/4$ i $\beta=-1/4$. Per tant:
+  \[\vec{e_2} = \frac{1}{4} \overrightarrow{v_1} -\frac{1}{4} \overrightarrow{v_2} \]
+  \item Si intentem fer $\overrightarrow{v_2} = \alpha \vec{e_1}$ obtenim:
+  \[
+    \systeme*{-2=\alpha\cdot 1, 1=\alpha\cdot 0}
+  \]
+  que no té solució. 
+  \item Els vectors que es poden posar com a combinació lineal de $\vec{e_1}$ són de la forma $(\alpha,0)$. És per això que en l'apartat anterior veiem que no podem posar $\overrightarrow{v_2}$ com a combinació lineal de $\vec{e_1}$.
+\end{enumerate}
+\blacksquare
+

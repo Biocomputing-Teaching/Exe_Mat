@@ -1,0 +1,31 @@
+ \Exercise A $\mathbb{R}^2$ hem aplicat a un triangle les transformacions concatenades següents (per aquest ordre):
+  \begin{enumerate}
+    \item Cisallament en la component horizontal de factor $\lambda=5$.
+    \item Homotècia de raó $a=1/5$ respecte l'origen.
+    \item Gir d'angle $\frac{\pi}{2}$ respecte l'origen de coordenades.
+  \end{enumerate}
+  Després del procés, el nou triangle és el format pels vèrtex $(1,1)$, $(2,3)$ i $(5,-1)$. Quin éra el triangle inicial?
+
+  \Answer Cal aplicar, per ordre sobre cada vector $(x,y)$ que defineix els vèrtex del triangle original, les tres transformacions afins de manera que ens duguin al nou vèrtex $(x',y')$.
+  \[
+    \begin{pmatrix}x'\\y'\end{pmatrix}=
+    \underbrace{\begin{pmatrix}\cos{\frac{\pi}{2}} & -\sin{\frac{\pi}{2}}\\\sin{\frac{\pi}{2}}&\cos{\frac{\pi}{2}}\end{pmatrix}}_{gir}
+    \underbrace{\begin{pmatrix}\frac{1}{5} &0\\0&\frac{1}{5}\end{pmatrix}}_{homotècia}
+    \underbrace{\begin{pmatrix}1&5\\0&1\end{pmatrix}}_{cisallament}
+    \begin{pmatrix}x\\y\end{pmatrix}=
+    \begin{pmatrix}0&-\frac{1}{5}\\\frac{1}{5}&1\end{pmatrix}
+    \begin{pmatrix}x\\y\end{pmatrix}
+  \]
+  Per trobar els vectors inicials haurem de fer la inversa d'aquesta matriu:
+  \[
+    \begin{pmatrix}0&-\frac{1}{5}\\\frac{1}{5}&1\end{pmatrix}^{-1}\begin{pmatrix}x'\\y'\end{pmatrix}=
+    \begin{pmatrix}25&5\\-5&0\end{pmatrix}\begin{pmatrix}x'\\y'\end{pmatrix}=
+    \begin{pmatrix}x\\y\end{pmatrix}
+  \]
+  Aplicant l'expressió a tots tres vèrtex obtenim:
+  \begin{eqnarray*}
+    \begin{pmatrix}25&5\\-5&0\end{pmatrix} \begin{pmatrix}1\\1\end{pmatrix}&=&\begin{pmatrix}30\\-5\end{pmatrix}\\
+    \begin{pmatrix}25&5\\-5&0\end{pmatrix} \begin{pmatrix}2\\3\end{pmatrix}&=&\begin{pmatrix}65\\-10\end{pmatrix}\\
+    \begin{pmatrix}25&5\\-5&0\end{pmatrix} \begin{pmatrix}5\\-1\end{pmatrix}&=&\begin{pmatrix}120\\-25\end{pmatrix}
+  \end{eqnarray*}
+  \blacksquare

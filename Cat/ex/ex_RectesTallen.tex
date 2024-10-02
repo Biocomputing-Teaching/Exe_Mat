@@ -1,0 +1,27 @@
+\Exercise Determineu si les rectes següents es tallen.
+\begin{enumerate}
+  \item $x+y+2=0$ i $2x+y-4=0$
+  \item $x-y-1=0$ i $2x-2y-2=0$
+  \item $x+3y-4=0$ i $3x+9y-8=0$
+\end{enumerate}
+
+\Answer No ens demanen pas en quin punt es tallen i, per tant, en tant que són rectes d'$\mathbf{R}^2$, amb analitzar l'angle entre els dos vectors directors $\uvec{u}$ i $\uvec{v}$, tot aprofitant que $\cos{\alpha}=\frac{\uvec{u}\cdot\uvec{v}}{\norm{\uvec{u}}\norm{\uvec{u}}}$, en tenim prou:
+
+\begin{tabular}{c|c|c}
+  \thead{Rectes}&\thead{Vectors directors}&\thead{Angles}\\
+  \hline
+  \makecell[c]{$x+y+2=0$\\$2x+y-4=0$}&
+  \makecell[c]{$\uvec{u}=(-1,1)$\\$\uvec{v}=(-1,2)$}&
+  \makecell[c]{$\cos{\alpha}=\frac{(-1,1)\cdot(-1,2)}{\norm{(-1,1)}\norm{(-1,2)}}=\frac{3}{\sqrt{2}\sqrt{5}}$\\
+  $\alpha=0.32rad=18.43\degree$}\\
+  \hline
+  \makecell[c]{$x-y-1=0$\\$2x-2y-2=0$}&
+  \makecell[c]{$\uvec{u}=(1,1)$\\$\uvec{v}=(2,2)$}&
+  \makecell[c]{$\cos{\alpha}=\frac{(1,1)\cdot(2,2)}{\norm{(1,1)}\norm{(2,2)}}=\frac{4}{\sqrt{2}\sqrt{8}}$\\
+  $\alpha=0 \text{radian} =0\degree$ \\ vectors proporcionals; equacions proporcionals: \\ rectes coincidents}\\
+  \hline
+  \makecell[c]{$x+3y-4=0$\\$3x+9y-8$}&
+  \makecell[c]{$\uvec{u}=(-3,1)$\\$\uvec{v}=(-9,3)$}&
+  \makecell[c]{$\cos{\alpha}=\frac{(-3,1)\cdot(-9,3)}{\norm{(-3,1)}\norm{(-9,3)}}=\frac{30}{\sqrt{10}\sqrt{90}}$\\
+  $\alpha=0\text{radian}=0\degree$ \\ vectors proporcionals; equacions NO proporcionals: \\ rectes paral·leles}\\\hline
+\end{tabular}

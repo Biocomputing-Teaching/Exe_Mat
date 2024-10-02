@@ -1,0 +1,123 @@
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONTADORES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcount\cociente
+\newcount\resto
+\newcount\dividendo
+\newcount\divisor
+\newcount\numterminos
+\newcount\primertermino
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% VALORES INICALES DE CONTADORES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\numterminos=0
+\primertermino=0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LONGITUDES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newdimen\Xdivisor
+\newdimen\Ydivisor
+\newdimen\Xresto
+\newdimen\Yresto
+\newdimen\Xcociente
+\newdimen\Ycociente
+\newdimen\Xdividendo
+\newdimen\Ydividendo
+\newdimen\Ancho
+\newdimen\Alto
+\newdimen\prolongarizquierda
+\newdimen\prolongarabajo
+\newdimen\sepnumeros
+\newdimen\comienzorayaresto
+\newdimen\alturaresto
+\newdimen\anchuraresto
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% VALORES INICALES DE LONGITUDES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
+\Xdivisor=-.5cm 
+\Ydivisor=.5cm
+\Xresto=-.5cm 
+\Yresto=-.5cm
+\Xcociente=-.5cm 
+\Ycociente=.5cm
+\Xdividendo=-.5cm 
+\Ydividendo=1.5cm
+\anchuraresto=1cm 
+\alturaresto=1cm
+\prolongarizquierda=1cm
+\prolongarabajo=1cm
+\Alto=2cm
+\sepnumeros=1cm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COMANDOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\rayavertical{%
+\psline(0,-\prolongarabajo)(0,\Alto)}
+\def\rayahorizontal{%
+\Ancho=\sepnumeros
+\multiply\Ancho by \numterminos
+\psline(-\prolongarizquierda,0)%
+(\Ancho,0)}
+
+\def\rayaresto{%
+\comienzorayaresto=\Ancho
+\advance\comienzorayaresto by -\anchuraresto
+\psline(\comienzorayaresto,0)%
+(\comienzorayaresto,-\alturaresto)%
+(\Ancho,-\alturaresto)}
+
+\def\Ruffini(#1)[#2]{%
+\contar(#1) \divisor=#2 \abredibujo
+\rput(\Xdivisor,\Ydivisor){$\the\divisor$}
+\rayavertical \rayahorizontal \primertermino=1
+\pondividendo(#1)}
+
+\def\contar(#1){%
+\advance\numterminos by 1
+\contarsiguiente}
+
+\def\contarfin{}
+
+\makeatletter
+\def\contarsiguiente{%
+\@ifnextchar ( {\contar}{\contarfin}%
+}
+\makeatother
+
+\def\pondividendo(#1){%
+\advance\Xdividendo by \sepnumeros
+\advance\Xcociente by \sepnumeros
+\dividendo=#1%
+\advance\Xresto by \sepnumeros
+\ifnum \primertermino=1 \resto=\dividendo%
+\cociente=0 \primertermino=2%
+\else%
+\cociente=\resto \multiply\cociente by \divisor%
+\resto=\dividendo \advance\resto by \cociente
+\fi%
+\rput(\Xdividendo,\Ydividendo){$\the\dividendo$}
+\ifnum \primertermino=2 \primertermino=3
+\else
+\rput(\Xcociente,\Ycociente){$\the\cociente$}
+\fi%
+\rput(\Xresto,\Yresto){$\the\resto$}%
+\dividendosiguiente}
+
+\def\abredibujo{%
+\begin{pspicture}%
+    (-\prolongarizquierda,-\prolongarabajo)(\Ancho,\Alto)}
+    
+\def\cierradibujo{%
+\end{pspicture}}
+
+\makeatletter
+\def\dividendosiguiente{%
+\@ifnextchar ( {\pondividendo}{\divisionfin}%
+}
+\makeatother
+
+\def\divisionfin{%
+\rayaresto \cierradibujo}

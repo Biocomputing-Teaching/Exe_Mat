@@ -1,0 +1,48 @@
+\Exercise Si $\{\overrightarrow{v_1},\overrightarrow{v_2}\} = \{ (2,1),(-2,1) \}$ i $\{\overrightarrow{e_1},\overrightarrow{e_2}\} = \{ (1,0),(0,1) \}$
+\begin{enumerate}
+  \item Són $\overrightarrow{e_2}$, $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$ linealment independents?
+  \item Són $\overrightarrow{e_1}$, $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$ linealment independents?
+  \item Com són els vectors linealment dependents amb $\overrightarrow{e_1}$?
+  \item Són $\overrightarrow{e_1}$ i $\overrightarrow{v_2}$ linealment independents?
+  \item Són $\overrightarrow{e_1}$ i $\overrightarrow{e_2}$ linealment independents?
+  \item Són $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$ linealment independents?
+\end{enumerate}
+
+\Answer Els vectors $\overrightarrow{v_1},\overrightarrow{v_2}, \ldots, \overrightarrow{v_n}$ són {\bf linealment dependents} si qualsevol d'ells es pot escriure com a  combinació lineal de la resta.    
+\[\vec{v_1} = \alpha \overrightarrow{v_2} + \beta \overrightarrow{v_3} + \cdots + \omega \overrightarrow{v_n}\]
+En cas contrari els anomenem {\bf linealment independents}. La definició equival a veure si en l'expressió
+\[\vec{0} = \lambda_1 \overrightarrow{v_1} + \lambda_2 \overrightarrow{v_2} + \cdots + \lambda_n \overrightarrow{v_n}\]
+hi ha alguna solució per a $\alpha$ i $\beta$ diferent de la trivial $\lambda_1,\ldots,\lambda_n=0$.
+
+
+\begin{enumerate}
+  \item Són $\overrightarrow{e_2}$, $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$ linealment independents?
+  \[\vec{0} = \alpha \overrightarrow{v_1} + \beta \overrightarrow{v_2} + \gamma \overrightarrow{e_2}\]
+  Reescrivint el sistema:
+  \[
+    \systeme*{0=2\alpha-2\beta, 0=\alpha+\beta+\gamma}
+  \]
+  Es tracta d'un sistema de dues equacions i tres incògnites, compatible perque segur que té la solució trivial ($\alpha=\beta=\gamma=0$ ) però també la solució
+  \[
+    \systeme*{\alpha=\delta,\beta=\delta,\gamma=0}
+  \]
+  Per tant, són L.D. Sempre passarà el mateix quan intentem esbrinar la dependència lineal de tres vectors qualsevols al conjunt $\mathbf{R}^2$ o de 4 vectors qualsevols al conjunt $\mathbf{R}^3$, per exemple.
+  \item Són $\overrightarrow{e_1}$, $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$ linealment independents?
+  Veure resposta a l'apartat anterior.
+  \item Com són els vectors linealment dependents amb $\overrightarrow{e_1}$?
+  Qualsevol vector que en la segona component tingui qualsevol valor diferent de $0$.
+  \item Són $\overrightarrow{e_1}$ i $\overrightarrow{v_2}$ linealment independents?\\
+  Plantegem
+  \[\vec{0} = \alpha \overrightarrow{e_1} + \beta \overrightarrow{v_2} \]
+  o, el que és el mateix:
+  \[
+    \systeme*{0=\alpha-2\beta,0=\beta}
+  \]
+  El resultat del sistema és $\alpha=\beta=0$ i, per tant, són L.I..
+  \item Són $\overrightarrow{e_1}$ i $\overrightarrow{e_2}$ linealment independents?
+  Veure l'apartat anterior.
+  \item Són $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$ linealment independents?
+  Veure l'apartat anterior.
+\end{enumerate}
+\blacksquare
+

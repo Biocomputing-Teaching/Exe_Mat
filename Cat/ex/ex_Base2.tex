@@ -1,0 +1,56 @@
+\Exercise Si $\{\overrightarrow{v_1},\overrightarrow{v_2}\} = \{ (2,1),(-2,1) \}$ i $\{\overrightarrow{e_1},\overrightarrow{e_2}\} = \{ (1,0),(0,1) \}$
+\begin{enumerate}
+  \item Comprova que $\overrightarrow{e_1}$ i $\overrightarrow{e_2}$ és una base de $\mathbb{R}^2$.
+  \item Perquè $\overrightarrow{e_1}$, $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$ no són una base de $\mathbb{R}^2$?
+  \item Formen una base de $\mathbb{R}^2$ els vectors $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$?
+  \item Quants vectors com a molt formen una base de $\mathbb{R}^2$?
+  \item I d'$\mathbb{R}^3$?
+\end{enumerate}
+
+\Answer  Recordem que els vectors $\overrightarrow{v_1},\overrightarrow{v_2}, \ldots, \overrightarrow{v_n}$ són una base de l'espai vectorial al qual pertanyen quan (1) són generados de l'espai, i (2) són linealment independents.
+\begin{enumerate}
+\item Comprova que $\overrightarrow{e_1}$ i $\overrightarrow{e_2}$ és una base de $\mathbb{R}^2$. Ens preguntem promer si podem posar tots els vectors d'$\mathbf{R}^2$ en funció dels vectors $\overrightarrow{e_1}$ i $\overrightarrow{e_2}$:
+\[(x,y) = \alpha (1,0) + \beta (0,1) \]
+Es pot veure que si $x=\alpha$ i $y=\beta$ es satisfà l'equació.\\
+Mirem ara si són linealment independents. Els vectors $\overrightarrow{v_1},\overrightarrow{v_2}, \ldots, \overrightarrow{v_n}$ són {\bf linealment dependents} si qualsevol d'ells es pot escriure com a combinació lineal de la resta. En cas contrari els anomenem {\bf linealment independents}. La definició equival a veure si en l'expressió
+\[(0,0) = \alpha (1,0) + \beta (0,1) \]
+hi ha alguna solució per a $\alpha$ i $\beta$ diferent de la trivial $\alpha=0$ i $\beta=0$.
+Plantejant el sistema d'equacions:
+\[
+  \systeme*{0=\alpha\cdot 1 + \beta\cdot 0, 0=\alpha\cdot 0 + \beta\cdot 1}
+\]
+veiem que l'única solució possible és que, justament, $\alpha=0$ i $\beta=0$. Per tant, són {\bf linealment independents}.\\
+Per tant, $\left\{\overrightarrow{e_1},\overrightarrow{e_2}\right\}$ forma una base d'$\mathbf{R}^2$.
+
+
+\item Perquè $\overrightarrow{e_1}$, $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$ no són una base de $\mathbb{R}^2$?
+Són, de fet, un conjunt generador de $\mathbb{R}^2$, però no en formen base perquè no són linealment independents. Plantegem l'equació
+\[(0,0) = \alpha (1,0) + \beta (0,1) +\gamma (-2,1)\]
+que duu al sistema d'equacions:
+\[
+  \systeme*{0=\alpha\cdot 1 + \beta\cdot 0 - \gamma\cdot 2, 0=\alpha\cdot 0 + \beta\cdot 1 + \gamma \cdot 1}
+\]
+que podem reduir a 
+\[
+  \systeme*{0=\alpha - 2\gamma, 0=\beta + \gamma}
+\]
+Es tracta d'un sistema de dues equacions amb tres incògnites. El sistema és compatible (té solució) perquè sempre podem dir que $\alpha=\beta=\gamma=0$ (que anomenem solució trivial), però també podem veure que si donem un valor arbitrari a, per exemple, $\gamma$, obtenim $\alpha=2\gamma$ i $\beta=-\gamma$. Per tant, la solució trivial no és l'única possible i, per tant, són linealment dependents. Dit d'una altra manera, a $\mathbf{R}^2$ només hi "cap" una base de dos vectors, no tres.
+\item Formen una base de $\mathbb{R}^2$ els vectors $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$?
+En ser dos només ens cal veure si són linealment independents. Plantegem
+\[(0,0) = \alpha (2,1) + \beta (-2,1) \]
+i obtenim
+\[
+  \systeme*{0=2\alpha- 2 \beta, 0=\alpha + \beta}
+\]
+Sumant la segona equació dos cops a la primera obtenim
+\[
+  \systeme*{0=4\alpha }
+\]
+Per tant, la solució $\alpha=\beta=0$ ens fa concloure que sñón linealment independents i, per tant, formen base de $\mathbb{R}^2$
+\item Quants vectors com a molt formen una base de $\mathbb{R}^2$?
+Un màxiom de dos poden ser L.I. i seguir generant tot l'espai.
+\item I d'$\mathbb{R}^3$?
+Pel mateix raonament, 3 vectors.
+\end{enumerate}
+\blacksquare
+

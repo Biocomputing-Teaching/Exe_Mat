@@ -1,0 +1,51 @@
+\Exercise
+
+\begin{tikzpicture}[scale=.5]
+    \tkzDefPoint(0,0){C}
+    \tkzDefPoint(3.5,0){C'}
+    \tkzDefPoint(14,0){A}
+
+    \tkzInterCC[R](C,10cm)(A,8cm)
+    \tkzGetPoints{B}{Bneg}
+    \pgfresetboundingbox % removes white space
+
+    \tkzInterCC[R](C',7.5cm)(A,6cm)
+    \tkzGetPoints{B'}{B'neg}
+
+
+    \tkzDrawPolygon(C,B,A)
+    \tkzLabelPoints[left](C)
+    \tkzLabelPoints[above](B)
+    \tkzLabelPoints[right](A)
+
+
+    \tkzDrawPolygon(C',B',A)
+    \tkzLabelPoints[left](C')
+    \tkzLabelPoints[above](B')
+    \tkzLabelPoints[right](A)
+
+
+    % lengths (automatic)
+    \tkzCalcLength[cm](C,A)\tkzGetLength{CAl}
+    \tkzCalcLength[cm](B,A)\tkzGetLength{BAl}
+    \tkzCalcLength[cm](C,B)\tkzGetLength{CBl}
+
+    \tkzLabelSegment[midway, sloped, below](C,A){$\pgfmathprintnumber\CAl$ cm};
+    \tkzLabelSegment[midway, sloped, above right](B,A){$\pgfmathprintnumber\BAl$ cm};
+    \tkzLabelSegment[midway, sloped, above left](C,B){$\pgfmathprintnumber\CBl$ cm};
+
+
+    % lengths (automatic)
+    \tkzCalcLength[cm](C',A)\tkzGetLength{CpAl}
+    \tkzCalcLength[cm](B',A)\tkzGetLength{BpAl}
+    \tkzCalcLength[cm](C',B')\tkzGetLength{CpBpl}
+    \tkzLabelSegment[midway, sloped, below](C',A){$\pgfmathprintnumber\CpAl$ cm};
+    \tkzLabelSegment[midway, sloped, above right](B',A){$\pgfmathprintnumber\BpAl$ cm};
+    \tkzLabelSegment[midway, sloped, above left](C',B'){$\pgfmathprintnumber\CpBpl$ cm};
+
+
+\end{tikzpicture}
+
+\Answer
+
+Això i allò

@@ -1,0 +1,18 @@
+%\begin{Exercise}[label=Ex1]
+\Exercise[title=Substitució] $\int \frac{x}{\sqrt[5]{x^2+2}}dx$ (pista: usa la substició $t=x^2+2$)
+%\end{Exercise}
+
+
+\Answer
+%  \begin{Answer}[ref=Ex1]
+
+  Ens hem d'adonar que el numerador és proper a la derivada de l'argument de l'arrel del denominador. Això ens mostra que la funció primitiva tindrà l'aspecte d'una arrel, justament. Per mostrar-ho, la substitució a realitzar pot ser
+  \[
+    t=x^2+2 ; \; dt=2xdx; \; xdx=\frac{dt}{2}
+  \]
+  Quedant:
+  \[
+    \int \frac{x}{\sqrt[5]{x^2+2}}dx = \int \frac{1}{\sqrt[5]{t}}\frac{dt}{2} = \frac{1}{2} \int t^{-5} dt = \frac{1}{2} \frac{t^{-4}}{(-4)} = -\frac{1}{8t^4}
+  \]
+
+%\end{Answer}

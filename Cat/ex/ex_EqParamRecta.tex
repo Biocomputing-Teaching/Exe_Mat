@@ -1,0 +1,68 @@
+\Exercise Trobeu les equacions paramètriques i cartesianes de les rectes següents:
+\begin{enumerate}
+  \item La recta que passa pels punts $(1,0,1)$ i $(1,3,-2)$
+  \item La recta que passa pel punt $(-2,0,3)$ i és paral·lela al vector $\uvec{v}=6\uvec{i}+3\uvec{j}$
+  \item La recta que passa pel punt $(-3,5,4)$ i és paral·lela a la recta $\frac{x-1}{3}=\frac{y+1}{-2}=z-3$
+\end{enumerate}
+
+\Answer L'equació paramètrica que defineix un punt qualsevol de la recta a $\mathbf{R}^3$ és:
+\[
+\begin{pmatrix}x\\y\\z\end{pmatrix}= \begin{pmatrix}x_0\\y_0\\z_0\end{pmatrix}+\lambda\begin{pmatrix}v_x\\v_y\\v_z\end{pmatrix}
+\]
+on $P=(x_0,y_0,z_0)$ és un punt qualsevol de la recta i $\uvec{v}=(v_x,v_y,v_z)$ el seu vector director. en tots tres casos ens donen un punt de la recta i ens donen informació que ens en permet calcular el vector deirector.
+
+\begin{enumerate}
+  \item La recta que passa pels punts $(1,0,1)$ i $(1,3,-2)$
+
+  Aquí $P=(1,0,1)$ i $\uvec{v}=(1,3,-2)-(1,0,1)=(0,3,-3)$. Per tant, l'equació paramètrica queda:
+  \[
+  \begin{pmatrix}x\\y\\z\end{pmatrix}= \begin{pmatrix}1\\0\\1\end{pmatrix}+\lambda\begin{pmatrix}0\\3\\-3\end{pmatrix}
+  \]
+
+  Pel que fa a l'equació cartesiana o general, la podem construir a partir de la contínua, que no és més que igualar el paràmere $\lambda$ provinent de cada coordenada a l'equació anterior. Així, l'eqació contínua seria (amb un petit abús denotació permetent-nos posar un $0$ al denominador):
+  \[
+  \frac{x-1}{0}=\frac{y}{3}=\frac{z-1}{-3}
+  \]
+  Agafant els dos primers termes de l'equació obtenim la primera de les equacions següents i agafant el segon i tercer terme obtenim la segona equació:
+  \[
+  \begin{cases}3x-3=0\\-3y=3z-3\end{cases}
+  \]
+  Simplificant:
+  \[
+  \begin{cases}x-1=0\\y+z-1=0\end{cases}
+  \]
+  Notar que l'equació d'una recta a $\mathbf{R}^3$ es construeix amb les equacions de dos plans que es tallen.
+
+  \item La recta que passa pel punt $(-2,0,3)$ i és paral·lela al vector $\uvec{v}=6\uvec{i}+3\uvec{j}$
+
+    En aquest cas ens donen directament $\uvec{v}=(6,3,0)$. Podem fer la mateixa operació que abans:
+    \[
+    \frac{x-2}{6}=\frac{y}{3}=\frac{z-3}{0}
+    \]
+    d'on
+    \[
+    \begin{cases}3x-6=6y\\0=3z-9\end{cases}
+    \]
+    Simplificant:
+    \[
+    \begin{cases}x-2y-2=0\\z-3=0\end{cases}
+    \]
+
+    \item La recta que passa pel punt $(-3,5,4)$ i és paral·lela a la recta $\frac{x-1}{3}=\frac{y+1}{-2}=z-3$
+
+ Idènticament, ens diuen que $\uvec{v}=(4,1,-3)$. Fem la contínua i després la general o cartesiana:
+ \[
+ \frac{x+3}{3}=\frac{y-5}{-2}=\frac{z-4}{1}
+ \]
+ d'on
+ \[
+ \begin{cases}-2x-6=3y-15\\y-5=-2z+8\end{cases}
+ \]
+ Simplificant:
+ \[
+ \begin{cases}2x+3y-9=0\\y+2z-13=0\end{cases}
+ \]
+ \blacksquare
+
+
+\end{enumerate}

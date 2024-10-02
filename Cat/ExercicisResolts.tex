@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+\input{../common/common.tex}
+\usepackage{amsmath, amssymb, amsthm}
+
+\usepackage[catalan]{babel}
+\usepackage{graphicx}
+\graphicspath{{../figures/}}
+
+\begin{document}
+
+\lstset{language=Matlab,%
+    basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{purple},
+    commentstyle=\color{green},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    emph=[2]{word1,word2}, emphstyle=[2]{style},
+}
+
+
+\title{Exercicis Resolts \\ \large MATEMÀTIQUES I \\ Grau en Enginyeria Mecatrònica 
+\author{Jordi Villà i Freixa}\thanks{Adreça electrònica: \texttt{jordi.villa@uvic.cat}}
+\begin{center}\includegraphics[width = 60mm]{FCTE}\end{center}}
+\date{Darrera modificació: \today}
+\maketitle
+
+\tableofcontents
+\newpage
+
+Aquest és un llistat d'exercicis recollits de diverses fonts. Si hi detecteu algun error feu-me'l arribar i corregiré el document.
+%
+\begin{ExerciseList}
+
+\section{Àlgebra lineal}
+
+
+\input{ex/ex_Base1.tex}
+\input{ex/ex_Base2.tex}
+\input{ex/ex_CartesianesPlans.tex}
+\input{ex/ex_CombinacioLineal1.tex}
+\input{ex/ex_CombinacioLineal2.tex}
+\input{ex/ex_ConjuntsGeneradors1.tex}
+\input{ex/ex_DependenciaLineal1.tex}
+\input{ex/ex_EqAlgebrTransNoreal.tex}
+\input{ex/ex_EqGenRecta.tex}
+\input{ex/ex_EqMat.tex}
+\input{ex/ex_EqParamRecta.tex}
+%\input{ex/ex_Interpolacions.tex}
+\input{ex/ex_MatCanviBase.tex}
+\input{ex/ex_modul1.tex}
+\input{ex/ex_modul2.tex}
+\input{ex/ex_Neutre.tex}
+\input{ex/ex_NormaVector.tex}
+\input{ex/ex_OperacionsVectors1.tex}
+\input{ex/ex_OperacionsVectors2.tex}
+\input{ex/ex_OrtogonalitatVectors.tex}
+\input{ex/ex_polar1.tex}
+\input{ex/ex_PosRelPlans.tex}
+\input{ex/ex_PosRelRectes.tex}
+\input{ex/ex_potenciamatriu1.tex}
+\input{ex/ex_ProdMat.tex}
+\input{ex/ex_Quadrilater.tex}
+\input{ex/ex_RectesR21.tex}
+\input{ex/ex_RectesR22.tex}
+\input{ex/ex_RectesTallen.tex}
+\input{ex/ex_SumaVectors.tex}
+%\input{ex/ex_Tales1.tex}
+% \input{ex/ex_TransformacionsAfins2.tex}
+% \input{ex/ex_TransformacionsAfins3.tex}
+% \input{ex/ex_TransformacionsAfins4.tex}
+% \input{ex/ex_TransformacionsAfins5.tex}
+% \input{ex/ex_TransformacionsAfins6.tex}
+\input{ex/ex_TransformacionsAfins.tex}
+\input{ex/ex_UnitariOrtogonal.tex}
+\input{ex/ex_valorvectorpropi1.tex}
+\input{ex/ex_valorvectorpropi2.tex}
+\input{ex/ex_valorvectorpropi3.tex}
+
+\section{Càlcul Integral}
+
+\subsection{Integral indefinida}
+
+\input{ex/ex_integralsubstitucio1.tex}
+\input{ex/ex_integralsubstitucio2.tex}
+\input{ex/ex_integralracional1.tex}
+\input{ex/ex_integraltrigonometrica1.tex}
+\input{ex/ex_integraltrigonometrica2.tex}
+\input{ex/ex_integralracionaltrigonometrica1.tex}
+\input{ex/ex_integraltrigonometrica3.tex}
+
+\subsection{Integral definida}
+
+\input{ex/ex_integraldefinida1.tex}
+\input{ex/ex_integraldefinida2.tex}
+
+\subsection{Integració de moltes variables}
+
+\input{ex/ex_volumesfera1.tex}
+\input{ex/ex_volumparaboloide1.tex}
+
+\end{ExerciseList}
+
+\section{Material pràctic}
+
+\begin{itemize}
+    \item La Figura \ref{Fig:unitcircle} conté informació sobre els sinus i cosinus d'alguns dels valors d'angles més comuns en els exercicis de l'assignatura.
+\end{itemize}
+
+\begin{figure}
+    \begin{minipage}[r]{0.7\textwidth}
+      \includegraphics[width=\textwidth]{unitcircletikz}
+    \end{minipage}\hfill
+    \begin{minipage}[l]{0.3\textwidth}
+      \caption{
+        Esquema dels valors de $\sin x$ i $\cos x$ per a alguns valors d'angles.
+      } \label{Fig:unitcircle}
+    \end{minipage}
+  \end{figure}
+  
+\end{document}

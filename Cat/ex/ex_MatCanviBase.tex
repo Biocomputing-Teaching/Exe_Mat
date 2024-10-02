@@ -1,0 +1,41 @@
+\Exercise Donades les bases de $\mathbb{R}^2$, $B=\{(1,-2),(0,1)\}$ i $D=\{(3,2),(-1,1)\}$:
+\begin{enumerate}[label=(\alph*)]
+  \item Doneu la matriu de canvi de base de $B$ a $C$ (base canònica)
+  \item Doneu la matriu de canvi de base de $C$ a $B$
+  \item Doneu la matriu de canvi de base de $D$ a $B$
+\end{enumerate}
+
+\Answer Només cal recordar que la matriu de canvi de base de $B$ a $C$ és la matriu dels vectors de la base $B$ en funció de la base $C$, i que la matriu del canvi oposat és la inversa de l'anterior:
+\begin{enumerate}[label=(\alph*)]
+  \item Doneu la matriu de canvi de base de $B$ a $C$ (base canònica)
+  \[
+    A_{B\rightarrow C} = \begin{pmatrix}1&0\\-2&1\end{pmatrix}
+  \]
+  \blacksquare
+
+  \item Doneu la matriu de canvi de base de $C$ a $B$
+  \[
+    A_{C\rightarrow B} = (A_{B\rightarrow C})^{-1} =\begin{pmatrix}1&0\\-2&1\end{pmatrix}^{-1}
+  \]
+  I obtenim la inversa fent:
+  \[
+    \begin{pmatrix}1&0& \vrule &1&0 \\-2&1& \vrule &0&1\end{pmatrix} \approx
+    \begin{pmatrix}1&0& \vrule &1&0 \\0&1& \vrule &2&1\end{pmatrix}
+  \]
+  Per tant,
+  \[
+    A_{C\rightarrow B} = \begin{pmatrix}1&0\\2&1\end{pmatrix}
+  \]
+  \blacksquare
+
+  \item Doneu la matriu de canvi de base de $D$ a $B$
+  Podem construir-la amb una composició de transformacions lineals, és a dir, amb una multiplicació de les matrius que les defineixen:
+  \begin{eqnarray*}
+    A_{D\rightarrow B} &=& A_{C\rightarrow B}\cdot A_{D\rightarrow C}\\
+    A_{D\rightarrow B} &=& \begin{pmatrix}1&0\\2&1\end{pmatrix} \cdot
+    \begin{pmatrix}3&-1\\2&1\end{pmatrix}=
+    \begin{pmatrix}3&-1\\8&-1\end{pmatrix}
+  \end{eqnarray*}
+  \blacksquare
+
+\end{enumerate}

@@ -1,0 +1,36 @@
+\Exercise Com varia la temperatura d'un recinte, que ve donada per la funció $T=(2xy+2z^2)^{\circ}C$ en fer un desplaçament a partir del punt $P=(1,5,1)$ d'una unitat de longitud en la direcció del vector $\uvec{a}=2\uvec{i}+\uvec{j}$
+\label{ex:derivadadireccional1}
+\Answer
+
+Notem primer que la funció depèn de tres coordenades, $T(x,y,z)$. 
+Ens demanen avaluar la derivada direccional de la funció en la direcció del vector $\vec{a}=2\uvec{i}+\uvec{j}$. Hem de fer, doncs, dues coses:
+\begin{itemize}
+  \item Trobar el gradient de la funció:
+  \[
+    \grad{T(x,y,z)}=\begin{pmatrix}\frac{dT}{dx}\\\frac{dT}{dy}\\\frac{dT}{dz}\end{pmatrix}= \begin{pmatrix}2y\\2x\\4z\end{pmatrix} 
+  \]
+  En el punt $P=(1,5,1)$ tenim que $\grad{T(1,5,1)}=(10,2,4)$.
+  \item Trobar el vector unitari en la direcció del vector donat $\vec{a}=2\uvec{i}+\uvec{j}$:
+  \[
+    \hat{\uvec{a}}=  \frac{\uvec{a}}{\norm{\uvec{a}}}=\frac{1}{\sqrt{5}}(2,1,0)
+  \]
+\end{itemize}
+
+així, la derivada direccional serà el producte escalar:
+\[
+  D_{\uvec{a}}(P)=  \grad{T(x,y,z)} \cdot \hat{\uvec{a}} = (10,2,4) \cdot \frac{1}{\sqrt{5}}(2,1,0) = 22\frac{1}{\sqrt{5}}
+\]
+
+Aquest codi permet resoldre l'exercici a \texttt{MATLAB}:
+\begin{lstlisting}[style=Matlab-editor]
+  % resolució exercici
+  syms y(x) DY
+  eqn=y==sin(3*x+4*y)
+  dy=diff(y)
+  deqn=diff(eqn,x)
+  Deqn = subs(deqn, dy, DY)
+  DYsol = simplify( solve(Deqn, DY) )
+  disp(DY == DYsol)
+  \end{lstlisting}
+
+\blacksquare 

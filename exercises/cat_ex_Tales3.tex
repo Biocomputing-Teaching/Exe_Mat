@@ -1,0 +1,50 @@
+\Exercise
+
+Si agafo un paper rectangular que fa 8cm d'ample per 12cm de llarg i li faig un plec que dugui una punta del rectangle a la meitat del costat oposat llarg, quina és la mida del plegament?
+%https://twitter.com/zhigangsuo/status/1627722962122993664
+
+\Answer
+
+Dibuixem el problema i marquem els punts importants que defineixin els triangles a comparar:
+\begin{center}
+\begin{tikzpicture}
+    \coordinate [label={225:$A$}] (a) at (0,0);
+    \coordinate [label={135:$B$}] (b) at (0,8);
+    \coordinate [label={90:$C$}] (c) at (6,8);
+    \coordinate [label={-90:$D$}] (d) at (8.34,0);
+    \coordinate [label={180:$E$}] (e) at (0,6.25);
+    \coordinate [label={45:$F$}] (f) at (12,8);
+    \coordinate [label={-45:$G$}] (g) at (12,0);
+    \coordinate [label={180:$O$}] (o) at (3,4);
+
+    \path [dashed] (a) edge (e);
+    \path (e) edge (b); 
+    \path [dashed] (a) edge (d);
+    \path [dashed] (a) edge (c);
+    \path  (e) edge node[left] {$x$} (d);
+    \path  (e) edge (c);
+    \path  (b) edge node[above] {$6cm$}  (c);
+    \path  (c) edge node[above] {$6cm$}  (f);
+    \path  (c) edge (d);
+    \path  (f) edge node[right] {$8cm$}  (g);
+    \path  (d) edge (g);
+
+  \end{tikzpicture}
+\end{center}
+
+Observem que $BC=6cm$, $AC=\sqrt{AB^2+BC^2}=\sqrt{8^2+6^2}=10cm$. Per tant, $AO=OC=5cm$.
+
+Observem també que els triangles $ABC$, $AOD$ i $EOA$ són semblants (per comprovar-ho, agafa un paper rectangulr qualsevol i juga amb possibles plecs similars al proposat). Usant aquestes relacions obtenim que:
+\[
+  \frac{5}{OD}=\frac{6}{8}  
+\]
+d'on, $OD=\frac{20}{3}$. I, d'altra banda:
+\[
+  \frac{5}{OE}=\frac{8}{6}  
+\]
+d'on, $OE=\frac{15}{4}$.
+
+Per tant, la distància demanada és
+\[
+  x=ED=OE+OD=\frac{20}{3}+\frac{15}{4}=\frac{125}{12}  
+\]

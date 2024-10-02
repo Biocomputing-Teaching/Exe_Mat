@@ -1,0 +1,86 @@
+\Exercise[title=Vectors i valors propis en una matriu $3\times 3$\medskip] 
+\vspace{\baselineskip}
+Calcula els valors propis i vectors propis de la matriu $A=\begin{pmatrix}2&1&-1\\1&2&0\\-1&1&2\end{pmatrix}$. 
+\Answer
+
+Trobem primer el polinomi característic de la matriu:
+
+\[
+  \begin{pmatrix}2&1&-1\\1&2&0\\-1&1&2\end{pmatrix}
+  \begin{pmatrix}x\\y\\z\end{pmatrix}=\lambda\begin{pmatrix}x\\y\\z\end{pmatrix}\]
+
+  Perquè això tingui solució diferent de la trivial ($(x,y,z)=(0,0,0)$) cal que el determinant secular sigui igual a zero:
+  \[
+  \begin{vmatrix}2-\lambda&1&-1\\1&2-\lambda&0\\-1&1&2-\lambda\end{vmatrix}=0  
+  \]
+  Per tant, cal solucionar el polinomi característic de la matriu:
+  \[-\lambda^3+6\lambda^2-10\lambda+3=0\]
+
+  Per Ruffini obtenim el primer dels coeficients:
+  \input{Ruffini}
+  \begin{center}
+  \Ruffini(-1)(6)(-10)(3)[3]
+  \end{center}
+  Per tant:
+  \[-\lambda^3+6\lambda^2-10\lambda+3=0
+  -(\lambda-3)(\lambda^2-3\lambda+1)=(\lambda-3)(\lambda-\frac{3-\sqrt{5}}{2})(\lambda-\frac{\sqrt{5}+3}{2})=0\]
+
+
+Per a cada valor propi, trobem els vectors propis associats:
+
+\begin{description}
+  \item[$\boxed{\lambda_1=3}$] 
+  \[
+  \begin{pmatrix}2&1&-1\\1&2&0\\-1&1&2\end{pmatrix}
+  \begin{pmatrix}x\\y\\z\end{pmatrix}=3\begin{pmatrix}x\\y\\z\end{pmatrix}\]
+
+  Solucionem el sistema:
+  \[
+    \systeme{2x+y-z=3x,x+2y=3y,-x+y+2z=3z} \Rightarrow
+    \systeme{-x+y-z=0,x-y=0}  \Rightarrow
+    \systeme*{x=\alpha,y=\alpha,z=0}\]
+  Per tant, un vector propi associat a $\lambda_1=3$ és $\uvec{v}_1=\begin{pmatrix}1\\1\\0\end{pmatrix}$. 
+
+  \item[$\boxed{\lambda_2=\frac{3-\sqrt{5}}{2}}$] 
+  ----------------------------
+  
+  \[
+    \begin{pmatrix}1&-1&4\\3&2&-1\\2&1&-1\end{pmatrix}
+  \begin{pmatrix}x\\y\\z\end{pmatrix}=3\begin{pmatrix}x\\y\\z\end{pmatrix}
+  \]
+  Solucionem el sistema:
+  \[
+    \systeme{x-y+4z=3x,3x+2y-z=3y,2x+y-z=3z} \Rightarrow
+    \systeme{-2x-y+4z=0,3x-y-z=0,2x+y-4z=0}  \Rightarrow
+    \systeme{-2x-y+4z=0,3x-y-z=0} \Rightarrow
+    \systeme*{x=\alpha,y=2\alpha,z=\alpha} \]
+  Així doncs, un vector propi associat a $\lambda_2=3$ és $\uvec{v}_1=\begin{pmatrix}1\\2\\1\end{pmatrix}$.  
+  \item[$\boxed{\lambda_3=-2}$] 
+  \[
+    \begin{pmatrix}1&-1&4\\3&2&-1\\2&1&-1\end{pmatrix}
+  \begin{pmatrix}x\\y\\z\end{pmatrix}=-2\begin{pmatrix}x\\y\\z\end{pmatrix}
+  \]
+  Solucionem el sistema:
+  \[
+    \systeme{x-y+4z=-2x,3x+2y-z=-2y,2x+y-z=-2z} \Rightarrow
+    \systeme{3x-y+4z=0,3x+4y-z=0,2x+y+z=0}  \Rightarrow
+    \systeme{3x-y+4z=0,-y+z=0} \Rightarrow
+    \systeme*{x=-\alpha,y=\alpha,z=\alpha}\]
+  Finalment, doncs, un vector propi associat a $\lambda_3=-2$ és $\uvec{v}_1=\begin{pmatrix}-1\\1\\1\end{pmatrix}$.  
+\end{description}
+
+El determinant de la matriu original és justament el producte dels tres valors propis:
+
+\[\det \begin{pmatrix}1&-1&4\\3&2&-1\\2&1&-1\end{pmatrix}=-6=\lambda_1\cdot\lambda_2\cdot\lambda_3\]
+
+i la traça de la matriu és la suma dels tres valors propis:
+
+\[\tr(A)=a_{11}+a_{22}+a_{33}=\lambda_1+\lambda_2+\lambda_3=2\]
+
+Els tres vectors són L.I., ja que 
+
+\[\det \begin{pmatrix}-1&1&-1\\4&2&1\\1&1&1\end{pmatrix}=-6\neq 0\]
+
+De fet, en no haver cap valor propi igual a $0$, la matriu formada pels tres vectors propis ha de ser per força invertible i, per tant, el seu determinant diferent de zero o, el que és el mateix, els vectors propis són L.I.
+
+\blacksquare

@@ -1,0 +1,36 @@
+\Exercise Determina el punt simètric de $P(3,-2)$ respecte la bisectriu del primer quadrant.
+
+\Answer 
+
+El dibuix mostra el plantejament del problema:
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+  \foreach \i in {-4,-3,...,4} \draw (\i,0)--(\i,.1);
+  \foreach \i in {-4,-3,...,4} \draw (0,\i)--(.1,\i);
+  \draw[->] (-4,0) -- (4,0) node[right] {$x$}; 
+  \draw[->] (0,-4) -- (0,4) node[above] {$y$};
+  \draw[->] (3,-2)  node[right] {$P$} -- (-2,3) node[above] {$P'$};
+  \draw[dotted] (-2,-2) -- node [pos=0.92, below, sloped] {$y=x$} (2,2) ;
+  \node at (3,-2) {$\bullet$};
+  \node at (-2,3) {$\bullet$};
+  \node[above] at (1/2,1/2) {$M$};
+\end{tikzpicture}
+\end{center}
+
+Per trobar $P'$ trobarem primer la recta perpendicular a la bisectriu. La recta $y=x$ té pendent 1. Això vol dir que els seus vectors directors seran del tipus $\uvec{v}=(\alpha,\alpha)\Rightarrow \frac{\alpha}{\alpha}=1$. Per exemple, $\uvec{v}=(1,1)$. Un vector perpendicular a aquest seria $\uvec{v'}=(-1,1)$. Efectivament:
+\[
+  \uvec{v}\cdot\uvec{v'}=(1,1)\cdot(-1,1)=1\cdot(-1)+1\cdot 1=0
+\]
+La recta perpendicular a la bisectriu i que passa pel punt donat serà, doncs, en la seva forma contínua:
+\[\frac{x-3}{-1}=\frac{y+2}{1}\]
+o bé, en la seva forma explícita,
+\[y=1-x\]
+Trobem ara el punt $M$ on es troben les dues rectes solucionant el sistema d'equacions que formen:
+\[\systeme*{y=x,y=1-x}\]
+d'on $M\left(\frac{1}{2},\frac{1}{2}\right)$.
+Finalment, el punt que cerquem complirà que $\overrightarrow{PP'}=2\overrightarrow{PM}$. Per tant:
+\begin{eqnarray*}
+  (x',y')-(3,-2)&=&2\left(\left(\frac{1}{2},\frac{1}{2}\right)-(3,-2)\right)\\
+  P'=(x',y')&=&(-2,3)
+\end{eqnarray*}  

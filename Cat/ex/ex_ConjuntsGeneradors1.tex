@@ -1,0 +1,37 @@
+\Exercise Si $\{\overrightarrow{v_1},\overrightarrow{v_2}\} = \{ (2,1),(-2,1) \}$ i $\{\overrightarrow{e_1},\overrightarrow{e_2}\} = \{ (1,0),(0,1) \}$
+\begin{enumerate}
+  \item Comprova que $\overrightarrow{e_1}$ i $\overrightarrow{e_2}$ són generadors de $\mathbb{R}^2$.
+  \item Comprova que $\overrightarrow{e_1}$, $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$ són generadors de $\mathbb{R}^2$.
+  \item Ho són $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$?
+  \item Dóna exemples de conjunts de vectors d'$\mathbb{R}^2$ que generin altres vectors del mateix espai vectorial amb la forma $\{(\alpha,0):\alpha \in  \mathbb{R} \}$.
+  \item Comprova que el conjunt de vectors $\{(1,0,0),(0,1,0),(0,0,1)\}$ genera $\mathbb{R}^3$.
+\end{enumerate}
+
+\Answer Els vectors $\overrightarrow{v_1},\overrightarrow{v_2}, \ldots, \overrightarrow{v_n}$ són generadors de l'espai vectorial $E$ al qual pertanyen, i diem $E=\left<\overrightarrow{v_1},\overrightarrow{v_2}, \ldots, \overrightarrow{v_n}\right>$, quan qualsevol $\vec{u}\in E$ es pot posar com a combinació lineal de $\overrightarrow{v_1},\overrightarrow{v_2}, \ldots, \overrightarrow{v_n}$:
+\[\vec{u} = \lambda_1 \overrightarrow{v_1} + \lambda_2 \overrightarrow{v_2} + \cdots + \lambda_n \overrightarrow{v_n}\]
+
+
+\begin{enumerate}
+  \item Comprova que $\overrightarrow{e_1}$ i $\overrightarrow{e_2}$ són generadors de $\mathbb{R}^2$.
+  \[\vec{u} = \alpha \overrightarrow{e_1} + \beta \overrightarrow{e_2}\]
+  o, anàlogament:
+  \[
+    \systeme*{x=\alpha,y=\beta}
+  \]
+  Per tant, és obvi que podem trobar valors de $\alpha$ i $\beta$ que satisfacin aquesta expressió per a qualsevol vector $(x,y)\in \mathbb{R}^2$. 
+  \item Comprova que $\overrightarrow{e_1}$, $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$ són generadors de $\mathbb{R}^2$.
+  \[\vec{u} = \alpha \overrightarrow{e_1} + \beta \overrightarrow{v_1} + \gamma \overrightarrow{v_2}\]
+  quedant:
+  \[
+    \systeme*{x=\alpha+2\beta-2\gamma,y=\beta+\gamma}
+  \]
+  Donats  valors a $\alpha$, $\beta$ i $\gamma$ podem trobar tots els valors possibles de les components dels vectors $(x,y)$.
+  \item Ho són $\overrightarrow{v_1}$ i $\overrightarrow{v_2}$?
+  El mateix cas que l'apartat (1).
+  \item Dóna exemples de conjunts de vectors d'$\mathbb{R}^2$ que generin altres vectors del mateix espai vectorial amb la forma $\{(\alpha,0):\alpha \in  \mathbb{R} \}$.
+  $(1,0)$ o $(-3/2,0)$ serien exemples d'aquests vectors. Cal notar que no generarien tot l'espai $\mathbb{R}^2$, sinó un subespai de dimensió 1 (una recta al pla $\mathbb{R}^2$).
+  \item Comprova que el conjunt de vectors $\{(1,0,0),(0,1,0),(0,0,1)\}$ genera $\mathbb{R}^3$.
+  Cas anàleg a l'apartat (1).
+\end{enumerate}
+\blacksquare
+

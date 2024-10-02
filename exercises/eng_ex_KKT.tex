@@ -1,0 +1,115 @@
+\Exercise Maximize $f(x,y)=xy$ subject to $100 \geq x+y$ and $x\leq 40$ and $(x,y)\geq0$.
+
+\Answer 
+
+The Karush Kuhn Tucker (KKT) conditions  for optimality are a set of necessary conditions for a solution to be optimal in a mathematical optimization problem. They are necessary and sufficient conditions for a local minimum in nonlinear programming problems. The KKT conditions consist of the following elements:
+
+For an optimization problem in its standard form:
+
+\begin{equation*}
+  \begin{aligned}
+    \text{max} \, f(\uvec{x}) \\
+    \text{s.t.}\quad &
+    \begin{array}{rcl}
+      g_i(\uvec{x})-b_i  & \leq & 0 \quad i=1,\ldots,k \\
+      g_i(\uvec{x})-b_i  & = & 0 \quad i=k+1,\ldots,m \\
+    \end{array}
+  \end{aligned}
+\end{equation*}
+
+There are 4 KKT conditions for optimal primal ($\uvec{x}$) and dual ($\lambda$) variables. If $\uvec{x}^*$ denotes optimal values:
+\begin{enumerate}
+  \item Primal feasibility: all constraints must be satisfied: $g_i(\uvec{x}^*)-b_i$ is feasible. Applies to both equality and non-equality constraints.
+  \item Gradient condition or No feasible descent: No possible improvement at the solution: 
+  \[ \nabla f(\uvec{x}^*)-\sum_{i=1}^m \lambda_i^* \nabla g_i (\uvec{x}^*)=0\]
+  \item Complementariety slackness: 
+  \[\lambda_i^* (g_i(\uvec{x}^*)-b_i)=0\]
+  \item Dual feasibility: $\lambda_i^*\geq 0$
+\end{enumerate}
+
+The last two conditions (3 and 4) are only required with inequality constraints and enforce a positive Lagrange multiplier when the constraint is active (=0) and a zero Lagrange multiplier when the constraint is inactive (>0). 
+
+To solve our problem, first we will put it in its standard form:
+
+
+\begin{equation*}
+  \begin{aligned}
+    \text{max} \, f(x,y)=xy \\
+    \text{s.t.}\quad &
+    \begin{array}{rcl}
+      g_1(x,y)=x+y-100  & \leq & 0  \\
+      g_2(x,y)=x-40 & \leq & 0  \\
+      g_3(x,y)=-x&\leq&0\\
+      g_4(x,y)=-y&\leq&0\\
+    \end{array}
+  \end{aligned}
+\end{equation*}
+
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}
+    [ xmin=-30,xmax=120,
+      ymin=-30,ymax=120,
+      grid=both,
+      grid style={line width=.1pt, draw=darkgray!10},
+      major grid style={line width=.2pt,draw=darkgray!50},
+      axis lines=middle,
+      minor tick num=4,
+      enlargelimits={abs=0.5},
+      axis line style={latex-latex},
+      samples=100,
+      domain = -20:110,
+      view={0}{90}
+    ]
+    \fill[blue, pattern=north west lines, pattern color=blue] (0,0) -- (0,100) -- (40,60) -- (40,0) -- (0,0);
+    \draw[black] (40,-20) -- (40,80);
+    \draw[black] (-20,120) -- (120,-20);
+    \addplot3 [contour lua={number=15}
+              ] {x*y};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+
+We will go through the different conditions:
+
+ \begin{itemize}
+  \item on the gradient:
+  \[
+    \begin{pmatrix}\pdv{f}{x}\\\pdv{f}{y}\end{pmatrix} 
+    -\lambda_1 \begin{pmatrix}\pdv{g_1}{x}\\\pdv{g_1}{y}\end{pmatrix}
+    -\lambda_2 \begin{pmatrix}\pdv{g_2}{x}\\\pdv{g_2}{y}\end{pmatrix} 
+    -\lambda_3 \begin{pmatrix}\pdv{g_3}{x}\\\pdv{g_3}{y}\end{pmatrix}
+    -\lambda_4 \begin{pmatrix}\pdv{g_4}{x}\\\pdv{g_4}{y}\end{pmatrix}=0
+  \]
+  which, in this example, resolves into:
+  \begin{equation}\label{Eq:KKT1}y-(\lambda_1+\lambda_2-\lambda_3)=0\end{equation}
+  \begin{equation}\label{Eq:KKT2}x-(\lambda_1-\lambda_4)=0\end{equation}
+  \item on the complementary slackness:
+  \begin{equation}\label{Eq:KKT3}\lambda_1 (x +y -100)=0\end{equation}
+  \begin{equation}\label{Eq:KKT4}\lambda_2 (x-40)=0\end{equation}
+  \begin{equation}\label{Eq:KKT5}\lambda_3 x =0\end{equation}
+  \begin{equation}\label{Eq:KKT6}\lambda_4 y =0\end{equation}
+  \item on the constraints:
+  \begin{equation}\label{Eq:KKT7}x+ y \leq100\end{equation}
+  \begin{equation}\label{Eq:KKT8}x\leq40\end{equation}
+  \begin{equation}\label{Eq:KKT9}-x\leq0\end{equation}
+  \begin{equation}\label{Eq:KKT10}-y\leq0\end{equation}
+
+  plus $\lambda_1,\lambda_2,\lambda_3,\lambda_4\geq 0$.
+
+  We will start by checking Eq. \ref{Eq:KKT3}:
+  \begin{itemize}
+    \item  Let us see what occurs if $\lambda_1=0$. Then, from Eq. \ref{Eq:KKT2}, $x+\lambda_4=0$ which implies that $x=\lambda_4=0$\footnote{Recall that both variables and multiplieras must be positive or zero, so, the only possibility for the equation to fullfill is that both are zero.}. But, then, from Eq. \ref{Eq:KKT4} we obtain that $\lambda_2=0$ which, using Eq. \ref{Eq:KKT1} gives $y+\lambda_3=0\Rightarrow y=\lambda_3=0$. Indeed, the KKT conditions are satisfied when all variables and multipliers are zero, but it is not a maximum of the function (see figure above).
+    \item So, let us see what happens if $x+y-100=0$ and consider the two possibilities for $x$:
+    \begin{description}
+      \item[Case $x=0$:] Then, $y=100$, which would lead (Eq. \ref{Eq:KKT6}) to $\lambda_4=0$ and (Eq. \ref{Eq:KKT2}) to $x=\lambda_1=0$, that was discussed in the previous item. So, we need top explore the other possibility for $x$.
+      \item[Case $x>0$:] From Eq. \ref{Eq:KKT5} $\lambda_3=0$ and, from Eqs. \ref{Eq:KKT1} and \ref{Eq:KKT2}:
+      \[\systeme{y=\lambda_1+\lambda_2,x=\lambda_1+\lambda_4}
+      \] 
+      let us try what happens if, e.g., $\lambda_2\neq 0$ (or, said in other words, if constraint \ref{Eq:KKT8} is active): $x=40$. As we know we do not want $\lambda_1=0$, from Eq. \ref{Eq:KKT3} we obtain $x+y-100=0\Rightarrow y=60$.
+    \end{description}
+
+    The point $(x,y)=(40,60)$ fullfills the KKT conditions and is a maximum in the constrained maximization problem.
+
+ \end{itemize}
+\end{itemize}

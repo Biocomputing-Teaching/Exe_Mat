@@ -1,0 +1,31 @@
+\Exercise Trobeu l'equació general de les rectes següents:
+\begin{enumerate}
+  \item La recta que passa pel punt $(1,2)$ i té per vector director el vector $\uvec{v}=(3,-1)$.
+  \item La recta que passa pel punt $(0,0)$ i és paral·lela a la recta $x-y=4$.
+  \item La recta que passa pel punt $(1,-2)$ i és perpendicular a la recta $x+2y+5=0$
+\end{enumerate}
+
+\Answer Cada cas el podem ractar lleugerament diferent, però totes les opcions són equivalents i bescanviables en la pràctica:
+\begin{enumerate}
+  \item La recta que passa pel punt $(1,2)$ i té per vector director el vector $\uvec{v}=(3,-1)$.
+ 
+  Comencem amb l'equació contínua de la recta escrivint:
+  \[
+  \frac{x-1}{3}=\frac{y-2}{-1}
+  \]
+  D'aquí:
+  \begin{eqnarray*}
+    -(x-1)&=&3(y-2)\\
+    3y+x-7=0
+  \end{eqnarray*}
+
+  \item La recta que passa pel punt $(0,0)$ i és paral·lela a la recta $x-y=4$.
+
+  Si les dues rectes són paral·leles, els coeficients de la $x$ i la $y$ en l'equació general seran els mateixos i, per tant, busquem el coeficient independent a l'equació $x-y=C$. Com que la recta passa pel punt $(0,0)$, $C=0$ i la recta demanada és $x-y=0$.
+
+  \item La recta que passa pel punt $(1,-2)$ i és perpendicular a la recta $x+2y+5=0$
+
+  Si la recta problema és ortogonal a $x+2y+5=0$ vol dir que el producte escalar dels seus vectors directors és $0$. El vector director de la recta donada és $(2,1)$ (mira l'equació contínua del primer d'aquests tres apartats) i, per tant, un possible vector ortogonal a aquest seria $(-1,2)$.\footnote{Efectivament, $(2,1)\cdot(-1,2)=0$}. Així, novament com en l'apartat anterior, busquem el coeficient independent a l'equació $2x-2y=C$. Com que la recta problema passa pel punt $(1,-2)$, tenim que $2\cdot1-2\cdot(-2)=6=C$. Per tant, la recta buscada és $2x-2y-6=0$
+
+\end{enumerate}
+\blacksquare

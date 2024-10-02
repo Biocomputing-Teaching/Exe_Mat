@@ -1,0 +1,110 @@
+\Exercise The figure shows a network on four nodes, including net demands on the vertex, $b_k$, and cost an capacity on the edges, $(c_{i,j},u_{i,j})$.(Adapted from \cite{rardin2017}) 
+
+\begin{tikzpicture}[shorten >=1pt, auto, node distance=3cm, ultra thick,
+  node_style/.style={circle,draw=blue,fill=blue!20!,font=\sffamily\Large\bfseries},
+  edge_style/.style={draw=black, ultra thick},
+  arrow_style/.style={draw=black, ultra thick,-stealth},
+  every edge quotes/.append style = {anchor=north, sloped}],
+                      
+  \node (v1) [node_style, label=-100] {1};
+  \node (v2) [node_style, label=0, above right=of v1] {2};
+  \node (v3) [node_style, label=60, below right=of v2] {3};
+  \node (v4) [node_style, label=40, below right=of v1] {4};
+  %
+  \draw [arrow_style] (v1) edge node[above,sloped]{$(2,90)$} (v2);
+  \draw [arrow_style] (v1) edge node[below,sloped]{$(3,75)$} (v4);
+  \draw [arrow_style,bend right] (v4) edge node[below,sloped]{$(-1,\infty)$} (v2);
+  \draw [arrow_style,bend right] (v2) edge node[above,sloped]{$(0,\infty)$} (v4); 
+  \draw [arrow_style] (v2) edge node[above,sloped]{$(5,50)$} (v3);    
+  \draw [arrow_style] (v4) edge node[below,sloped]{$(11,\infty)$} (v3); 
+      \end{tikzpicture}
+
+\begin{enumerate}
+  \item Formulate the corresponding minimum cost network flow model
+  \item Classify the nodes as {\em source}, {\em sink} or {\em transshipment}
+\end{enumerate}
+
+\Answer 
+
+In this  problem, vertex and edges are:
+\begin{eqnarray*}
+  V&=&\{1,2,3,4\}\\
+  A&=&\{(1,2),(1,4),(2,3),(2,4),(4,2),(4,3)\}
+\end{eqnarray*}
+
+we can use the variables $x_{i,j}$ to represent the flows in the different members of set $A$. Thus, the formulation of the problem is:
+\begin{equation*}
+  \begin{aligned}
+    \text{min} \quad&2x_{1,2}+3x_{1,4}+5x_{2,3}-x_{4,2}+11x_{4,3} \\
+    \text{subject to }\quad &
+    \syssubstitute{A{x_{1,2}}B{x_{1,4}}C{x_{2,3}}D{x_{2,4}}E{x_{4,3}}F{x_{4,2}}}
+\systeme[ABCDEF]{
+  -A-B=-100,
+  A+F-C-D=0,
+  C+E=60,
+  B+D-F-E=40,
+  A\leq 90,
+  B\leq 75,
+  C\leq 50} 
+\end{aligned}\\
+\end{equation*}
+and $x_{i,j}\geq 0$.
+
+There are 4 KKT conditions for optimal primal ($x4$) and dual ($\lambda$) variables. If $x^*$ denotes optimal values:
+\begin{enumerate}
+  \item Primal feasibility: all constraints must be satisfied: $g_i(x^*)-b_i$ is feasible. Applies to both equality and non-equality constraints.
+  \item Gradient condition or No feasible descent: No possible improvement at the solution: 
+  \[ \nabla f(x^*)-\sum_{i=1}^m \lambda_i^* \nabla g_i (x^*)=0\]
+  \item Complementariety slackness: 
+  \[\lambda_i^* (g_i(x^*)-b_i)=0\]
+  \item Dual feasibility: $\lambda_i^*\geq 0$
+\end{enumerate}
+
+The last two conditions (3 and 4) are only required with inequality constraints and enforce a positive Lagrange multiplier when the constraint is active (=0) and a zero Lagrange multiplier when the constraint is inactive (>0). 
+
+to solve our problem, first we will put it in its standard form:
+
+
+\begin{equation*}
+  \begin{aligned}
+    \text{min } f(x,y)=-xy \\
+    \text{subject to }\quad &
+    \begin{array}{rcl}
+      -x-y+100  & \geq & 0  \\
+      -x-40 & \geq & 0  \\
+    \end{array}
+  \end{aligned}
+\end{equation*}
+
+We will go through the different conditions:
+
+\begin{enumerate}
+  \item Primal feasibility:  $g_i(x^*)-b_i$ is feasible. 
+  \[-x^* -y^* +100 =0\]
+  \[-x^*-40=0\]
+  \item Gradient condition or No feasible descent:  
+  \[ \begin{pmatrix}\pdv{f}{x}\\\pdv{f}{y}\end{pmatrix} 
+  -\lambda_1 \begin{pmatrix}\pdv{g_1}{x}\\\pdv{g_1}{y}\end{pmatrix}
+  -\lambda_2 \begin{pmatrix}\pdv{g_2}{x}\\\pdv{g_2}{y}\end{pmatrix} =0\]
+  which, in this example, resolves into:
+  \[\systeme[xy\lambda_1\lambda_2]{-y+\lambda_1+\lambda_2=0,-x-\lambda_1=0 }\]
+  \item Complementariety slackness: 
+  \[\lambda_1^* (-x^* -y^* +100)=0\]
+  \[\lambda_2^* (-x^*-40)=0\]
+  \item Dual feasibility: $\lambda_1,\lambda_2\geq 0$
+\end{enumerate}
+
+We can put the resulting 5 expressions for conditions 1 and 2 into matrix form:
+
+\[
+  \begin{pmatrix} -1 & -1 & 0&0\\ -1&0&0&0\\ 0&-1&1&1\\ -1&0&-1&0 \end{pmatrix}
+  \begin{pmatrix} x\\y\\\lambda_1\\\lambda_2\end{pmatrix}=
+  \begin{pmatrix} -100\\ 40\\0\\0 \end{pmatrix}
+\]
+
+  % \begin{minipage}[t]{\linewidth}
+  %   \vspace{-2ex}
+  %   %\includegraphics[width=\textwidth]{../figures/Afiquadrilater.pdf}
+  %   \captionof{figure}{Transformacions afins d'un quadrilàter de vèrtex $(4,0)$, $(2,2)$, $(1,1)$ i $(2,-1)$.}
+  %   \label{fig:trafquadril}
+  % \end{minipage}

@@ -1,0 +1,42 @@
+\Exercise
+  Aïlleu $X$, si és possible, en les equancions següents, suposant que totes les matrius són quadrades del mateix ordre i invertibles:
+  \begin{enumerate}[label=(\alph*) ]
+    \item $3 X^t+ (XA)^t + I = B$
+    \item $(XA)^{-1}=2I+B$
+    \item $AX+C=BX$
+  \end{enumerate}
+
+\Answer Usant les propietats de les operacions amb matrius:
+
+  \begin{enumerate}[label=(\alph*) ]
+    \item $3 X^t+ (XA)^t + I = B$
+    \begin{eqnarray*}
+      3 X^t+ (XA)^t + I &=&B\\
+      (3X)^t + (XA)^t &=& B-I\\
+      (3X+XA)^t &=& B-I\\
+      3X+XA &=& (B-I)^t\\
+      3XI+XA &=& (B-I)^t\\
+      X(3I+A) &=& (B-I)^t\\
+      X\underbrace{(3I+A)(3I+A)^{-1}}_{I} &=& (B-I)^t(3I+A)^{-1}\\
+      X &=& (B-I)^t(3I+A)^{-1}
+    \end{eqnarray*}
+    \blacksquare
+
+    \item $(XA)^{-1}=2I+B$
+    \begin{eqnarray*}
+      (XA)^{-1}&=&2I+B\\
+      XA&=&(2I+B)^{-1}\\
+      X&=&(2I+B)^{-1}A^{-1}
+    \end{eqnarray*}
+    \blacksquare
+
+    \item $AX+C=BX$
+    \begin{eqnarray*}
+      AX+C&=&BX\\
+      AX-BX&=&C\\
+      (A-B)X&=&C\\
+      X&=&(A-B)^{-1}C
+    \end{eqnarray*}
+    \blacksquare
+
+  \end{enumerate}

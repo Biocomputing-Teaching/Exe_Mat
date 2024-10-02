@@ -1,0 +1,23 @@
+\Exercise[title={$\int \sin^m x \cos^n x dx$ amb \(m , n \in Z^+\) i $m,n$ parells}]
+
+%\begin{Exercise}[label=Ex4]
+
+Avalúa la integral $\int{ \frac{1}{\sqrt{1-x^2}}dx}$
+
+%\end{Exercise}
+
+\Answer 
+%\begin{Answer}[ref=Ex4]
+
+    Considerem el canvi de variable
+    \[x=\sin{u}; \; dx=\cos{u} du\].
+    Per tant:
+  \[
+  I=\int \frac{1}{\sqrt{1-x^2}} dx = \int \frac{1}{\sqrt{1-\sin^2{u}}} \cos{u} du = \int \frac{1}{\sqrt{\cos^2{u}}} \cos{u}   du = \int du = u + C
+  \]
+  si desfem la substitució:
+  \[
+  I= \arcsin{x} + C
+  \]
+
+%\end{Answer}

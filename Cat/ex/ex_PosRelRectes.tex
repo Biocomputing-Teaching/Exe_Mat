@@ -1,0 +1,118 @@
+\Exercise Determineu la posició relativa de les rectes següents:
+
+\begin{enumerate}
+  \item $\begin{cases}x=4t+2\\y=3\\z=-t+1\end{cases}$ i $\begin{cases}x=2s+2\\y=2s+3\\z=s+1\end{cases}$
+  \item $\begin{cases}x+3y=6\\y-z=0\end{cases}$ i $\frac{x-1}{4}=y+2=\frac{z+3}{-3}$
+\end{enumerate}
+
+\Answer D'entrada mirem si són paral·leles (o coincidents) especte si es creuen (o es tallen) analitzant els seus vectors directors. Després mirarem si realemnt coincideixen an algun o infinits punts o no.
+
+\begin{enumerate}
+  \item $\begin{cases}x=4t+2\\y=3\\z=-t+1\end{cases}$ i $\begin{cases}x=2s+2\\y=2s+3\\z=s+1\end{cases}$
+
+En aquest cas, els dos vectors directors són $\uvec{u}=(4,0-1)$ i $\uvec{v}=(2,2,1)$, amb la qual cosa veiem que no són paral·leles (ni coincidents). Per saber si es tallen hem d'assegurar que passin per algun punt comú. Així, si el sistema
+\[
+\begin{cases}4t+2=2s+2\\3=2s+3\\-t+1=s+1\end{cases}
+\]
+és compatible, també ho serà determinat, per força. És fàcil veure que el sistema es soluciona per a $s=t=0$. Per tant, les dues rectes es tallen, justament, en el punt que determinen aquests dos paràmetres: $P=(2,3,1)$, cosa que es podia observar directament a partir de les equacions paramètriques de l'enunciat.
+\blacksquare
+
+  \item $\begin{cases}x+3y=6\\y-z=0\end{cases}$ i $\frac{x-1}{4}=y+2=\frac{z+3}{-3}$
+
+En aquest podem analitzar directament el sistema d'equacions format per totes les equacions donades:
+
+\[
+\begin{cases}
+  x+3y=6\\
+  y-z=0\\
+  x-1=4y+8\\
+  -3y-6=z+3
+\end{cases}
+\]
+arranjant una mica:
+\[
+\begin{cases}
+  x+3y=6\\
+  0x+y-z=0\\
+  x-4y+0z=9\\
+  0x-3y-z=9
+\end{cases}
+\]
+
+D'on podem analitzar els rangs de la matriu de coeficients i de la matriu ampliada $(A|B)$ usant, per exemple, el mètode de Gauss-Jordan:
+
+\begin{elimination}[3]{3}{1.1em}{1.1}% Decreased from 1.75em
+    \eliminationstep
+    {
+        1 & 3 & 0 & 6  \\
+        0 & 1 & -1 & 0  \\
+        1 & -4 & 0 & 9  \\
+        0 & -3 & -1 & 9
+    }
+    {
+        \\
+        \\
+        -R_{1}\\
+        \\
+    }
+    \eliminationstep
+    {
+    1 & 3 & 0 & 6  \\
+    0 & 1 & -1 & 0  \\
+    0 & 7 & 0 & -3  \\
+    0 & -3 & -1 & 9
+    }
+    {
+        \\
+        \\
+        -7R_{2}\\
+        +3R_{2}
+    }
+    \\
+    \eliminationstep
+    {
+    1 & 3 & 0 & 6  \\
+    0 & 1 & -1 & 0  \\
+    0 & 0 & 7 & -3  \\
+    0 & 0 & -4 & 9
+    }
+    {
+        \\
+        \\
+        \frac{1}{7} R_{3}\\
+        -\frac{1}{4} R_{4}
+    }
+    \eliminationstep
+    {
+    1 & 3 & 0 & 6  \\
+    0 & 1 & -1 & 0  \\
+    0 & 0 & 1 & -\frac{3}{7}  \\
+    0 & 0 & 1 & -\frac{9}{4}
+    }
+    {
+        \\
+        \\
+        \\
+        -R_{3}\\
+    }
+    \\
+    \eliminationstep
+    {
+    1 & 3 & 0 & 6  \\
+    0 & 1 & -1 & 0  \\
+    0 & 0 & 1 & -\frac{3}{7}  \\
+    0 & 0 & 0 & -\frac{51}{28}
+    }
+    {
+        \\
+        \\
+        \\
+        \\
+    }
+\end{elimination}
+
+d'on deduïm que el sistema és incompatible. Per tant, les rectes no es toquen. Per saber si són paral·leles podem mirar també el resultat de l'eliminació de Gauss-Jordan. Finalment obtenim tres línies de la matriu (les tres primeres) que representen un sistema equvalent al creuament de tres plans en un sol punt. Per tant, les des rectes es creuen en l'espai i no són paral·leles. En aquest darrer cas hauríem obtingut només dues files de la matriu $A$ linealment independents.
+
+
+
+\end{enumerate}

@@ -1,0 +1,27 @@
+\Exercise Troba la derivada $\frac{dy}{dx}$ si $x^3-3xy+y^3=2$
+\label{ex:derivada1}
+\Answer
+
+
+Es tracta d'una funció implícita i farem la derivada com a tal:
+
+\begin{eqnarray*}
+  \frac{d}{dx}(x^3-3xy+y^3)&=&\frac{d}{dx}(2)\\
+  3x^2-(3y+3x\frac{dy}{dx})+3y^2\frac{dy}{dx}&=&0\\
+  (3x^2-3y)+(3y^2-3x)\frac{dy}{dx}&=&0\\
+  \frac{dy}{dx}&=&\frac{-3x^2+3y}{3y^2-3x}=\frac{y-x^2}{y^2-x}
+\end{eqnarray*}
+
+Aquest codi permet resoldre l'exercici a \texttt{MATLAB}:
+\begin{lstlisting}[style=Matlab-editor]
+  % resolució exercici
+  syms y(x) DY
+  eqn=x^3-3*x*y+y^3==0
+  dy=diff(y)
+  deqn=diff(eqn,x)
+  Deqn = subs(deqn, dy, DY);
+  DYsol = simplify( solve(Deqn, DY) );
+  disp(DY == DYsol)
+  \end{lstlisting}
+
+\blacksquare 

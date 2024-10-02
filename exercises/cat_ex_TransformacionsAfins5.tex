@@ -1,0 +1,18 @@
+\Exercise Troba la matriu homogènia de la transformació afí corresponent a rotar un objecte 90 graus al voltant del centre \((1,2)\) 
+
+\Answer 
+Ens cal fer tres passos:
+\begin{itemize}
+    \item Moure l’objecte al centre de coordenades mitjançant la matriu \(A\):
+    \[ A=\begin {pmatrix}1&0&-1\\0&1&-2\\0&0&1\end {pmatrix} \]
+    \item Aplicar una rotació de \(\frac {\pi }{2}\) amb la matriu \(B\):
+    \[B=\begin {pmatrix}\cos {\frac {\pi }{2}}&-\sin {\frac {\pi }{2}}&0\\\sin {\frac {\pi }{2}}&\cos {\frac {\pi }{2}}&0\\0&0&1\end {pmatrix}=\begin {pmatrix}0&-1&0\\1&0&0\\0&0&1\end {pmatrix} \] 
+    i, finalment
+    \item  dur novament l’objecte a un centre \((1,2)\) fent el desplaçament contrari a \(A\)
+    \[ C=\begin {pmatrix}1&0&1\\0&1&2\\0&0&1\end {pmatrix} \]
+\end{itemize}
+
+La matriu buscada serà el producte de les tres:
+\[ M=C\times B\times A= \begin {pmatrix}1&0&1\\0&1&2\\0&0&1\end {pmatrix}\begin {pmatrix}0&-1&0\\1&0&0\\0&0&1\end {pmatrix}\begin {pmatrix}1&0&1\\0&1&2\\0&0&1\end {pmatrix}= \begin {pmatrix}0&-1&3\\1&0&-1\\0&0&1\end {pmatrix} \]
+
+\blacksquare

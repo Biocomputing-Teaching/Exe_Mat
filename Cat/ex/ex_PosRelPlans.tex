@@ -1,0 +1,80 @@
+\Exercise Determineu la posició relativa dels plans següents
+\begin{enumerate}
+  \item $x-y+z=1$ i $2x+2y-3z=4$
+  \item $4x+2y+6z=12$ i $3x+6y+2z=6$
+\end{enumerate}
+
+\Answer Només cal resoldre els sistemes d'equacions resultants d'aplegar-los i comprovar si són compatibles o incompatibles.
+\begin{enumerate}[label=\alph*) ]
+  \item $x-y+z=1$ i $2x+2y-3z=4$
+
+\[
+\begin{cases}
+  x-y+z=1\\
+  2x+2y-3z=4
+\end{cases}
+\]
+
+Aplicant l'eliminació de Gauss-Jordan:
+
+\begin{elimination}[3]{3}{1.1em}{1.1}% Decreased from 1.75em
+      \eliminationstep
+      {
+          1 & -1 & 1 & 1  \\
+          2 & 2 & -3 & 4
+      }
+      {
+          \\
+          -2 R_{1}\\
+      }
+      \eliminationstep
+      {
+      1 & -1 & 1 & 1  \\
+      0 & 4 & -5 & 2
+  }
+  {
+      \\
+      \\
+  }
+\end{elimination}
+
+Es comprova que $rg(A)=2$ i $rg(A|B)=2$ i, per tant, el sistema és compatible indeterminat de rang 2. Els plans es tallen en una recta.
+\blacksquare
+
+  \item $4x+2y+6z=12$ i $3x+6y+2z=6$
+
+
+  \[
+  \begin{cases}
+    4x+2y+6z=12\\
+    3x+6y+2z=6
+  \end{cases}
+  \]
+
+  Aplicant l'eliminació de Gauss-Jordan:
+
+  \begin{elimination}[3]{3}{1.1em}{1.1}% Decreased from 1.75em
+        \eliminationstep
+        {
+            4 & 2 & 6 & 12  \\
+            3 & 6 & 2 & 6
+        }
+        {
+            \\
+            -\frac{3}{4} R_{1}\\
+        }
+        \eliminationstep
+        {
+        4 & 2 & 6 & 12  \\
+        0 & \frac{9}{2} & -\frac{5}{2} & -3
+    }
+    {
+        \\
+        \\
+    }
+  \end{elimination}
+
+  Es comprova que $rg(A)=2$ i $rg(A|B)=2$ i, per tant, el sistema és compatible indeterminat de rang 2. Els plans es tallen en una recta.
+  \blacksquare
+
+\end{enumerate}

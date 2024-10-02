@@ -1,0 +1,27 @@
+\Exercise Troba la derivada $\frac{dy}{dx}$ si $y=\sin(3x+4y)$
+\label{ex:derivada1}
+\Answer
+
+
+Es tracta d'una funció implícita i farem la derivada com a tal:
+
+\begin{eqnarray*}
+  \frac{d}{dx}y&=&\frac{d}{dx}\sin(3x+4y)\\
+  \frac{dy}{dx}&=&\cos(3x+y)\left(3+4\frac{dy}{dx}\right)\\
+  \frac{dy}{dx}\left(1-4\cos(3x+y)\right)&=&3\cos(3x+y)\\
+  \frac{dy}{dx}&=&\frac{3\cos(3x+y)}{1-4\cos(3x+y)}
+\end{eqnarray*}
+
+Aquest codi permet resoldre l'exercici a \texttt{MATLAB}:
+\begin{lstlisting}[style=Matlab-editor]
+  % resolució exercici
+  syms y(x) DY
+  eqn=y==sin(3*x+4*y)
+  dy=diff(y)
+  deqn=diff(eqn,x)
+  Deqn = subs(deqn, dy, DY)
+  DYsol = simplify( solve(Deqn, DY) )
+  disp(DY == DYsol)
+  \end{lstlisting}
+
+\blacksquare 

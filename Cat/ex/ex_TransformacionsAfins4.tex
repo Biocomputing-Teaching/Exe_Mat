@@ -1,0 +1,26 @@
+\Exercise Posa’t dret sobre un peu. Deixant fixe a terra el taló, mou el peu un angle \(\theta \) en el sentit contrari a les agulles del rellotge. Un cop fet això, deixa fixa la punta del peu i mou la resta un angle de \(-2\theta \) en el sentit de les agulles del rellotge. Finalment, repeteix el moviment inicial. Què ha passat en termes de transformació afí del teu peu? Si \(\theta =\frac {\pi }{2}\), series capaç de trobar la matriu de la transformació?
+
+\Answer El procés que ens demanen és el següent, llegit de dreta a esquerra, considerant que el peu té una longitud $L$ i que els moviments són perfectes taló-punta:
+\[
+  M=\underbrace{  
+    \overbrace{\begin{pmatrix}1&0&-2L\\0&1&0\\0&0&1\end{pmatrix}}^{=F}
+    \overbrace{\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}}^{=E}
+    \overbrace{\begin{pmatrix}1&0&L\\0&1&0\\0&0&1\end{pmatrix}}^{=D}
+    \overbrace{\begin{pmatrix}-1&0&0\\0&-1&0\\0&0&1\end{pmatrix}}^{=C}
+    \overbrace{\begin{pmatrix}1&0&L\\0&1&0\\0&0&1\end{pmatrix}}^{=B}
+    \overbrace{\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}}^{=A}
+  }_{\begin {pmatrix}1&0&-2L\\0&1&0\\0&0&1 \end {pmatrix}}
+\]
+on les diferents matrius descriuen transformacions afins elementals:
+\begin{description}
+    \item[$A$: ] Rotació $\frac{\pi}{2}$.
+    \item[$B$: ] Desplaçament del punt de referència una distància $L$ en el sentit positiu de la coordinada $x$.
+    \item[$C$: ] Rotació $-\pi$. 
+    \item[$D$: ] Desplaçament del punt de referència una distància $L$ en el sentit positiu de la coordinada $x$.
+    \item[$E$: ] Rotació $\frac{\pi}{2}$.
+    \item[$F$: ] Desplaçament del punt de referència una distància $-2L$ en el sentit positiu de la coordinada $x$. Retorn a l'origen de coordenades inicial.
+\end{description}
+
+El resultat gobal és equivalent, doncs, a una matriu de desplaçament \(2L\) en la direcció \(-X\).
+
+\blacksquare

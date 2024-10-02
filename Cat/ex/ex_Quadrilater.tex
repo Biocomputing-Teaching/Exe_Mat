@@ -1,0 +1,18 @@
+\Exercise Comprova que el quadrilàter de vèrtex $A=(1,1,1)$, $B=(2,3,4)$, $C=(6,5,2)$ i $D=(7,7,5)$ és un paral·lelogram i calcula'n l'àrea.
+
+\Answer Per comprovar si és un quadrilàter hem de veure si els costats del quadrilàter formen dues parelles de vectors paral·lels. És fàcil veure que $\overrightarrow{AB}=\overrightarrow{CD}=(1,2,3)$ i que $\overrightarrow{AC}=\overrightarrow{BD}=(5,4,1)$.
+
+L'àrea serà igual al mòdul del producte vectorial dels dos vectors que formen els costats del paral·lelogram:
+\[
+\uvec{u} \times \uvec{v}=
+\begin{vmatrix}
+\uvec{i} & \uvec{j} & \uvec{k} \\
+1 & 2 & 3\\
+5 & 4 & 1
+\end{vmatrix}=
+(2\uvec{i}+15\uvec{j}+4\uvec{k})-(12\uvec{i}+\uvec{j}+10\uvec{k})=-10\uvec{i}+14\uvec{j}-6\uvec{k}
+\]
+\[
+Area=\norm{\uvec{u} \times \uvec{v}}=\sqrt{(-10)^2+14^2+(-6)^2}
+\]
+\blacksquare

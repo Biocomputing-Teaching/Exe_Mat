@@ -1,0 +1,29 @@
+\Exercise[title={$\int \frac{dx}{ax^2 + bx + c}$, amb denominador sense arrels reals (arctangent)}]
+%\begin{Exercise}[label=Ex6]
+  \vspace{5mm}
+  $\int \frac{3}{x^2+2x+4} dx$
+  
+
+%\end{Exercise}
+
+\Answer
+
+%\begin{Answer}[ref=Ex6]
+
+    En no haver zeros reals del polinoni del denominador ens cal usar l'estratègia de completar quadrats. Aquesta tècnica ens permet acostar l'expressió de la integral a la que tindria una primitiva arctangent.
+    En general,
+    \[
+      ax^2+bx+c=a\left(x^2+\frac{b}{a}x+\frac{c}{a}\right)=a\left((x+r)^2+s^2\right)
+    \]
+    on es pot veure fàcilment que $r=\frac{b}{2a}$ i $s=\sqrt{\frac{c}{a}-\frac{b^2}{4a^2}}$.En aquest cas, $r=1$ i $s=\sqrt{3}$. Per tant:
+
+    \[
+      \int \frac{3}{x^2+2x+4} dx=3\int \frac{1}{(x+1)^2+(\sqrt{3})^2} dx\stackrel{(*)}{=} \frac{1}{\sqrt{3}}\arctan{\frac{x+1}{\sqrt{3}}}+C
+    \]
+    \begin{description}
+      \item[$(*)$] Immediata, ja que $\int \frac{dx}{s^2+x^2}=\frac{1}{s}\arctan{\frac{x+r}{s}}+C$:
+    \end{description}
+
+\blacksquare
+
+

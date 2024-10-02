@@ -1,0 +1,16 @@
+\Exercise Doneu la transformació afí que transforma el quadrat de vèrtex $\{(-5,-2),(-9,-2),(-5,-6),(-9,-6)\}$ en el rectangle de vèrtex $\{(8,7),(2,7),(2,9),(8,9)\}$
+
+\Answer Amb tres punts en tenim prou per trobar la matriu d'una transformació afí. Si usem la notació homogènia:
+\[
+\begin{pmatrix}8&2&2\\7&7&9\\1&1&1\end{pmatrix}=
+\begin{pmatrix}a_{11}&a_{21}&b_1\\a_{12}&a_{22}&b_2\\0&0&1\end{pmatrix}
+\begin{pmatrix}-5&-9&-5\\-2&-2&-6\\1&1&1\end{pmatrix}
+\]
+on $\begin{pmatrix}a_{11}&a_{21}&b_1\\a_{12}&a_{22}&b_2\\0&0&1\end{pmatrix}$ és la matriu resultant de combinar les diferents transformacions afins elementals que ens han dut d'uns vèrtex als altres. Per tant:
+\[
+\begin{pmatrix}a_{11}&a_{21}&b_1\\a_{12}&a_{22}&b_2\\0&0&1\end{pmatrix}=
+\begin{pmatrix}8&2&2\\7&7&9\\1&1&1\end{pmatrix}
+\begin{pmatrix}-5&-9&-5\\-2&-2&-6\\1&1&1\end{pmatrix}^{-1}=
+\frac{1}{2}\begin{pmatrix}3&3&37\\0&-1&12\\0&0&2\end{pmatrix}
+\]
+\blacksquare

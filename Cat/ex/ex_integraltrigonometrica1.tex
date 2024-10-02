@@ -1,0 +1,24 @@
+\Exercise[title={$\int \sin^m x \cos^n x dx$ amb \(m , n \in Z^+\) i $m$ o $n$ senar}]
+
+%\begin{Exercise}[label=Ex3]
+
+$\int \sin^5{x}dx$ 
+
+%\end{Exercise}
+
+\Answer
+%  \begin{Answer}[ref=Ex3]
+
+  Usarem que $\sin^2{x}+\cos^2{x}=1$ i l'expressió quedarà:
+
+  \[
+    I=\int \sin^5{x}dx = \int \left(1-\cos^2{x}\right)^2\sin{x}dx
+  \]
+
+  Veiem que, d'aquesta manera, ens queda una expressió que barreja sinus i cosinus, i sabem que un és la derivada de l'altre. Per tant, una bona substició és $t=\cos{x}; \; dt=-\sin{x}dx$
+  \[
+    I=\int \sin^5{x}dx = - \int \left(1-t^2\right)^2dt=-\frac{t^5}{5}+2 \frac{t^3}{3}-t+C= -\frac{\cos^5{x}}{5}+2 \frac{\cos^3{x}}{3}-\cos{x}+C
+  \]
+
+
+%\end{Answer}

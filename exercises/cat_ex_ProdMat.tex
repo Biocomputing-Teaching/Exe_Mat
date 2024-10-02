@@ -1,0 +1,20 @@
+\Exercise
+  Determineu el valor de $m$ i $p$, perquè es pugui realitzar el producte següent:
+  \[
+    (P^t\cdot Q^t)\cdot M^t
+    \]
+    si $M_{2 \times 3}$, $P_{m \times p}$, $Q_{3 \times 4}$ i el resultat del producte és una matriu quadrada.
+
+\Answer
+  Per resoldre'l primer tenim en compte que:
+  \begin{eqnarray*}
+    M_{2 \times 3} &\Rightarrow& M^t_{3 \times 2}\\
+    P_{m \times p} &\Rightarrow& P^t_{p \times m}\\
+    Q_{3 \times 4} &\Rightarrow& Q^t_{4 \times 3}
+  \end{eqnarray*}
+  Amb la qual cosa:
+  \[
+    (P^t_{p \times m}\cdot Q^t_{4 \times 3})\cdot M^t_{3 \times 2}=A_{p \times 2}
+    \]
+    Com que ens diuen que $A$ és quadrada, obtenim $p=2$ i, a més, és fàcil veure que perquè el producte es pugui realitzar $m=4$.
+    \blacksquare

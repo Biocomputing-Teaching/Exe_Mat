@@ -1,0 +1,38 @@
+\Exercise[title={Racional trigonomètrica $\int R(sin x, cos x) dx$}]
+
+%\begin{Exercise}[label=Ex5]
+
+Avalúa la integral $I = \int \frac{2}{1+3\cos{x}} dx$
+
+(Pista: si $t = \tan{\theta/2}$, per raons trigonomètriques obtenim:
+
+\begin{eqnarray*} \sin{\theta}&=&\frac{2t}{1+t^2}\\ \cos{\theta}&=&\frac{1-t^2}{1+t^2}\\ \tan{\theta}&=&\frac{2t}{1-t^2} \end{eqnarray*})
+
+
+
+
+
+%\end{Exercise}
+
+\Answer
+%  \begin{Answer}[ref=Ex5]
+
+    En els casos en que tenim \( I = \int \frac{1}{a+b\cos{x}} dx\) o bé \( I = \int \frac{1}{a+b\sin{x}} dx\) és pràctic usar la substitució \(t = \tan{x/2}\). Aleshores tenim:
+
+    $$ dt=\frac{1}{2} \sec^2{\frac{x}{2}} dx = \frac{1}{2} \left( 1+\tan^2{\frac{x}{2}} \right) dx = \frac{1+t^2}{2} dx     $$
+
+    i, per tant, \(dx=\frac{2}{1+t^2} dt\)
+
+    \begin{eqnarray*}
+    I &=& \int \frac{2}{1+3\cos{x}} dx = \int \frac{2}{(1+3\frac{1-t^2}{1+t^2})} \frac{2}{(1+t^2)} dt \\
+    &=& 4 \int \frac{1}{1+t^2+3-3t^2}  dt =  4 \int \frac{1}{4-2t^2}  dt = \int \frac{1}{1-\left(\frac{t}{\sqrt{2}}\right)^2} dt
+    \end{eqnarray*}
+
+    i ara fem la substitució \(u=\frac{t}{\sqrt{2}}\) i \( du = \frac{dt}{\sqrt{2}}\)
+
+    \begin{eqnarray*}
+    I &=&  \int \frac{1}{1-\left(\frac{t}{\sqrt{2}}\right)^2} dt = \frac{1}{\sqrt{2}}  \int \frac{1}{1-u^2} du = \frac{1}{\sqrt{2}} \text{arctanh} \, {u} + C \\
+    &=& \frac{1}{\sqrt{2}} \text{arctanh} {\frac{t}{\sqrt{2}}} + C =  \frac{1}{\sqrt{2}} \text{arctanh}  {\frac{\tan{x/2}}{\sqrt{2}}} + C
+    \end{eqnarray*}
+
+%\end{Answer}
