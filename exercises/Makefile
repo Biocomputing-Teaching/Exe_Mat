@@ -7,7 +7,7 @@ FIG_DIR=../figures
 BUILD_DIR=../build
 
 # Common dependencies
-COMMON=$(wildcard $(COM_DIR)/com*.tex)
+COMMON=$(wildcard $(COM_DIR)/*.tex)
 
 # Image dependencies
 IMAGES=$(wildcard $(FIG_DIR)/*.png)

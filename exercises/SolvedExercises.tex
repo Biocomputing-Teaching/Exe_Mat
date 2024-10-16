@@ -1,34 +1,59 @@
-\documentclass[12pt]{book}
+\documentclass[12pt]{article}
 \input{../common/common.tex}
-
-
+\input{../common/lst.tex}
 \begin{document}
 
-\input{../common/lst.tex}
+
 
 \title{Solved Exercises \\ \large Optimization and Operations Research \newline \newline \includegraphics[width = 60mm]{FCTE}
-
-\thanks{e.mail: \texttt{jordi.villa@uvic.cat}}}
 \author{Jordi Villà-Freixa}
+\thanks{e.mail: \texttt{jordi.villa@uvic.cat}}}
+
 \date{Last update: \today}
 \maketitle
 \tableofcontents
-%\listofexercises
+\listofexercises
 \newpage
 
-test
 \begin{ExerciseList}
 \section{Non-linear optimization}
-\subsection{Lagrange multipliers}
+
+\subsection{NLO with constraints}
+\input{eng_ex_NLO2.tex}
 \input{eng_ex_lagrange.tex}
-\subsection{Karush-Kuhn-Tucker theorem}
 \input{eng_ex_KKT.tex}
+
 \section{Duality}
 \input{eng_ex_complementaryslackness}
 \input{eng_ex_complementaryslackness2}
+
 \section{Network analysis}
 \input{eng_ex_MinimumCost1.tex}
 \end{ExerciseList}
+
+\section{Appendices}
+
+\subsection{Python codes}
+
+\lstlistoflistings
+
+\subsubsection{NLO with constraints}
+
+\pythonexternal[caption=Non-linear optimization with constraints,label=code:NLO2]{../code/NLO2solution.py}
+
+% \tcbinputlisting{%
+%    arc=0pt, 
+%    outer arc=0pt,
+%    listing only,
+%    colback=blue!10,
+%    colbacktitle=blue!75!black,
+%    listing style=Matlab-editor,
+%    title=Accuracy Calculation,
+%    hbox,
+%    enhanced,
+%    drop shadow,
+%    listing file=../code/NLO2solution.py
+% }
 
 \bibliographystyle{plain}
 \bibliography{refs}

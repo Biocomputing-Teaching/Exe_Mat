@@ -368,7 +368,12 @@
     \refstepExecounter
     \begingroup\@getExerciseInfo\ExerciseHeader
     \addcontentsline{\ext@exercise}{\toc@exercise}{\ExerciseName\
-        \theExercise\ \expandafter{\itshape \ExerciseTitle}\hspace{.66em}}
+        %\theExercise\ 
+        \expandafter{
+          \itshape 
+          \ExerciseTitle
+          }
+          \hspace{.66em}}
     \endgroup\AtBeginExercise}
 \def\endExerciseEnv{\termineliste{1}\@EndExeBox%
 \vskip\ExerciseSkipAfter}
@@ -389,7 +394,13 @@
     \@selectExercise
     \global\@Answerfalse\@BeginExeBox\refstepExecounter%
     \addcontentsline{\ext@exercise}{\toc@exercise}{\ExerciseName\
-        \theExercise\ \expandafter{\itshape \ExerciseTitle}\hspace{.66em}}
+        \theExercise\ 
+        \expandafter{
+          \itshape 
+          \ExerciseTitle
+          }
+          \hspace{.66em}
+        }
     \item\ignorespaces\AtBeginExercise
 }
 \def\defineExePartInEnv{\def\@ExePartHeader{\ExePartHeader}}
