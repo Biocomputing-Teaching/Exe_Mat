@@ -1,25 +1,24 @@
-\documentclass[12pt]{article}
+\documentclass[12pt]{book}
 \input{../common/common.tex}
-
+\input{../common/common-cat.tex}
 
 \begin{document}
-
-
+\input{../common/lst.tex}
 
 \title{Exercicis Resolts \\ \large MATEMÀTIQUES \\ Graus en Biologia i Biotecnologia \\[15pt] \includegraphics[width = 60mm]{FCTE}
 \thanks{Adreça electrònica: \texttt{jordi.villa@uvic.cat}}}
 \author{Jordi Villà i Freixa}
 \date{Darrera modificació: \today}
 \maketitle
-
 \tableofcontents
-
 %\listofexercises
 \newpage
 
 
+
 \begin{ExerciseList}
     \section{Models matemàtics}
+    provant cel·la
     \subsection{Models discrets}
     \input{cat_ex_MalthusRatolins.tex}
 \section{Fonaments i espais vectorials}
@@ -88,22 +87,9 @@
 \input{cat_ex_SimetriaMercedes}
 \end{ExerciseList}
 \newpage
-\section{Material pràctic}
 
-\begin{itemize}
-    \item La Figura \ref{Fig:unitcircle} conté informació sobre els sinus i cosinus d'alguns dels valors d'angles més comuns en els exercicis de l'assignatura.
-\end{itemize}
+\input{material_practic}
 
-\begin{figure}
-    \begin{minipage}[r]{0.7\textwidth}
-      \includegraphics[width=\textwidth]{unitcircletikz}
-    \end{minipage}\hfill
-    \begin{minipage}[l]{0.3\textwidth}
-      \caption{
-        Esquema dels valors de $\sin x$ i $\cos x$ per a alguns valors d'angles.
-      } \label{Fig:unitcircle}
-    \end{minipage}
-  \end{figure}
 
 \bibliographystyle{plain}
 \bibliography{../common/refs}
