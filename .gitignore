@@ -10,7 +10,10 @@
 *.fot
 *.cb
 *.cb2
-.*.lb
+*.lb
+*.dat
+*.lua
+*.script
 
 ## Intermediate documents:
 *.dvi

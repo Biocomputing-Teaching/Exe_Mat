@@ -32,7 +32,7 @@ The last two conditions (3 and 4) are only required with inequality constraints 
 To solve our problem, first we will put it in its standard form:
 
 
-\begin{equation*}
+\begin{equation}
   \begin{aligned}
     \text{max} \, f(x,y)=xy \\
     \text{s.t.}\quad &
@@ -43,32 +43,52 @@ To solve our problem, first we will put it in its standard form:
       g_4(x,y)=-y&\leq&0\\
     \end{array}
   \end{aligned}
-\end{equation*}
+  \label{Eq:KKT}
+\end{equation}
 
+\begin{minipage}[t]{\linewidth}
+  \vspace{-2ex}
 \begin{center}
 \begin{tikzpicture}
   \begin{axis}
-    [ xmin=-30,xmax=120,
-      ymin=-30,ymax=120,
+    [ 
+      xmin=-30, xmax=120,
+      ymin=-30, ymax=120,
       grid=both,
       grid style={line width=.1pt, draw=darkgray!10},
-      major grid style={line width=.2pt,draw=darkgray!50},
+      major grid style={line width=.2pt, draw=darkgray!50},
       axis lines=middle,
       minor tick num=4,
       enlargelimits={abs=0.5},
       axis line style={latex-latex},
-      samples=100,
-      domain = -20:110,
-      view={0}{90}
+      samples=30,
+      domain=-20:110,
+      view={0}{90},
+      % Set contour options
+      colormap={blueyellow}{color=(blue) color=(white) color=(red)},
+      colorbar,
+      colorbar style={ylabel={Value}}
     ]
+
+    % Fill area under the blue region
     \fill[blue, pattern=north west lines, pattern color=blue] (0,0) -- (0,100) -- (40,60) -- (40,0) -- (0,0);
-    \draw[black] (40,-20) -- (40,80);
+    
+    
+    % Add surface plot for z = x * y
+    \addplot3 [surf, samples=30, domain=-20:110] {x*y}; % Create the surface plot
+
+    % Draw lines
+    \draw[black, thick] (40,-20) -- (40,80);
     \draw[black] (-20,120) -- (120,-20);
-    \addplot3 [contour lua={number=15}
-              ] {x*y};
+
+    \node at (40,60)[circle,fill,green,inner sep=2.5pt]{};
+
   \end{axis}
 \end{tikzpicture}
 \end{center}
+\captionof{figure}{Contour plot of the objective function \( f(x, y) = xy \) with constraints in Eq. \ref{Eq:KKT}, showing the final optimal value after applying the KKT conditions (green dot).}
+\label{Fig:KKT}
+\end{minipage}
 
 We will go through the different conditions:
 
@@ -109,7 +129,7 @@ We will go through the different conditions:
       let us try what happens if, e.g., $\lambda_2\neq 0$ (or, said in other words, if constraint \ref{Eq:KKT8} is active): $x=40$. As we know we do not want $\lambda_1=0$, from Eq. \ref{Eq:KKT3} we obtain $x+y-100=0\Rightarrow y=60$.
     \end{description}
 
-    The point $(x,y)=(40,60)$ fullfills the KKT conditions and is a maximum in the constrained maximization problem.
+    The point $(x,y)=(40,60)$ fullfills the KKT conditions and is a maximum in the constrained maximization problem (as can be seen in \autoref{Fig:KKT}).
 
  \end{itemize}
 \end{itemize}

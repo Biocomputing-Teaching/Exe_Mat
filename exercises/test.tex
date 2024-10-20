@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\begin{document}
+
+\section{Introduction}
+
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}
+\addplot3 [contour, domain=0:2, samples=25] {x*y}; % Example plot, adjust parameters as needed
+\end{axis}
+\end{tikzpicture}
+\caption{Sample plot}
+\end{figure}
+
+\end{document}

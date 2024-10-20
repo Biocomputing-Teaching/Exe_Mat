@@ -1,0 +1,27 @@
+\Exercise[label={ex:OR1},title={coses}] 
+Consider a manufacturing company that produces two products, \( P_1 \) and \( P_2 \). The company aims to maximize its profit. The profit from each product is given as follows: 
+
+- \( P_1 \): \$40 per unit
+- \( P_2 \): \$30 per unit
+
+The company has the following constraints based on its resources:
+
+1. The availability of raw material limits production to a maximum of 100 units of \( P_1 \) and 80 units of \( P_2 \).
+2. The total production time available is 160 hours, where producing one unit of \( P_1 \) takes 2 hours and one unit of \( P_2 \) takes 1 hour.
+
+Can you formulate the operations research problem?
+
+\Answer 
+
+The problem can be stated as:
+
+\begin{align*}
+\text{Objective Function:} & \quad \text{Maximize } Z = 40x_1 + 30x_2 \\
+\text{Subject to:} & \\
+& \quad 2x_1 + x_2 \leq 160 \quad \text{(Total production time constraint)} \\
+& \quad x_1 \leq 100 \quad \text{(Raw material constraint for } P_1\text{)} \\
+& \quad x_2 \leq 80 \quad \text{(Raw material constraint for } P_2\text{)} \\
+& \quad x_1, x_2 \geq 0 \quad \text{(Non-negativity constraints)}
+\end{align*}
+
+\blacksquare
