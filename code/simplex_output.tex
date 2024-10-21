@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsmath, xcolor}
+\usepackage{array}
+\usepackage{caption}
+\begin{document}
+\title{Simplex Method Intermediate Tableaus}
+\maketitle
+\section*{Initial Problem}
+\textbf{Maximize:} \\Z = 3.0\(x_{1}\) + 1.0\(x_{2}\)
+\\
+\textbf{Subject to:} \\2.0\(x_{1}\) + 1.0\(x_{2}\) \leq 8.0\\
+2.0\(x_{1}\) + 3.0\(x_{2}\) \leq 12.0\\
+\\
+\textbf{Canonical Form:} \\2.0\(x_{1}\) + 1.0\(x_{2}\) + \(s_{1}\) = 8.0\\
+2.0\(x_{1}\) + 3.0\(x_{2}\) + \(s_{2}\) = 12.0\\
+
+Entering variable: \(x_{1}\), Leaving variable: Basic var from row 1
+\newline\begin{minipage}{\textwidth}
+\captionof{table}{Simplex Tableau after iteration 0}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Basic & \(x_{1}\) & \(x_{2}\) & \(s_{1}\) & \(s_{2}\) & RHS \\
+\hline
+\textcolor{blue}{\(x_{2}\)} & \textbf{\textcolor{green}{2.00}} & 1.00 & 1.00 & 0.00 & 8.00  \\
+\hline
+\textcolor{blue}{\(s_{2}\)} & 2.00 & 3.00 & 0.00 & 1.00 & 12.00  \\
+\hline
+Z & \textbf{\textcolor{red}{-3.00}} & -1.00 & 0.00 & 0.00 & 0.00  \\
+\hline
+\end{tabular}
+\end{minipage}
+Optimal solution reached.
+\newline\begin{minipage}{\textwidth}
+\captionof{table}{Simplex Tableau after iteration 1}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Basic & \(x_{1}\) & \(x_{2}\) & \(s_{1}\) & \(s_{2}\) & RHS \\
+\hline
+\textcolor{blue}{\(x_{1}\)} & 1.00 & 0.50 & 0.50 & 0.00 & 4.00  \\
+\hline
+\textcolor{blue}{\(s_{2}\)} & 0.00 & 2.00 & -1.00 & 1.00 & 4.00  \\
+\hline
+Z & 0.00 & 0.50 & 1.50 & 0.00 & 12.00  \\
+\hline
+\end{tabular}
+\end{minipage}
+\textbf{Optimal solution:} \(x_{1} = 4.00\), \(x_{2} = 0.00\)
+\textbf{Optimal value (Simplex):} -12.00
+\textbf{Optimal value (ORTools):} 12.00
+\end{document}
